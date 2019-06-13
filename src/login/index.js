@@ -12,11 +12,11 @@ const values = {
     password: ""
 };
 
-export const submitValues = ({ name, email, confirmPassword, password }) => {
-    console.log({ name, email, confirmPassword, password });
+export const submitValues = ({ email, password }) => {
+    console.log({ email, password });
 };
 
-const InputForm = () =>
+const LoginForm = () =>
         <div className={styles.container}>
             <Paper elevation={1} className={styles.paper}>
                 <h1>Login</h1>
@@ -29,4 +29,4 @@ const InputForm = () =>
             </Paper>
         </div>;
 
-export default InputForm;
+export default LoginForm;

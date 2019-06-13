@@ -3,7 +3,7 @@ import { create } from 'jss';
 import { StylesProvider, jssPreset } from '@material-ui/styles';
 import styles from './App.module.css';
 import { ActiveTheme, ThemeList } from '../themes';
-import LoginForm from './login';
+import LoginForm from '../login';
 
 
 // TODO:  determine why typescript errors occur

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Button } from '../button'
+import { Button } from '../app/components/button'
 import { setTheme } from './actions'
 import './ThemeList.css'
 
