@@ -8,17 +8,17 @@ $break-large: 640px;
   flex-direction: column;
   align-items: center;
   padding: $theme-spacing-unit * 5 $theme-spacing-unit * 5 $theme-spacing-unit * 5;
-  background-color: var(--secondary);
-  color: var(--text-color);
+  background-color: var(--secondary) !important;
+  color: var(--text-color) !important;
 }
 
 label, svg {
-  color: var(--text-color);
+  color: var(--text-color) !important;
 }
 
 input {
-  color: var(--text-color);
-  background-color: transparent;
+  color: var(--text-color) !important;
+  background-color: transparent !important;
 }
 
 .container {
