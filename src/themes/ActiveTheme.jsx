@@ -1,5 +1,5 @@
 import React from 'react'
-import {hot} from "react-hot-loader";
+
 import { useSelector } from 'react-redux'
 
 import styles from './themes.module.css'
@@ -14,4 +14,4 @@ const Theme = ({ children }) => {
     );
 };
 
-export default hot(module)(Theme);
+export default Theme;
