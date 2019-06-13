@@ -1,0 +1,34 @@
+$theme-spacing-unit: 8px;
+$break-small: 320px;
+$break-large: 640px;
+
+.paper {
+  margin-top: $theme-spacing-unit * 8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $theme-spacing-unit * 5 $theme-spacing-unit * 5 $theme-spacing-unit * 5;
+  background-color: var(--secondary) !important;
+  color: var(--text-color) !important;
+}
+
+label, svg {
+  color: var(--text-color) !important;
+}
+
+input {
+  color: var(--text-color) !important;
+  background-color: transparent !important;
+}
+
+.container {
+  padding: 5px;
+  margin: auto;
+
+  @media screen and (max-width: $break-small) {
+    max-width: 320px;
+  }
+  @media screen and (min-width: $break-large) {
+    max-width: 640px;
+  }
+}

@@ -1,0 +1,7 @@
+.Button {
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+    background-color: var(--secondary);
+    color: var(--text-color);
+}

@@ -1,0 +1,23 @@
+:root, .dark {
+  --primary: lightgrey;
+  --secondary: #222;
+  --text-color: white;
+}
+
+.light {
+  --primary: white;
+  --secondary: rgb(235, 226, 226);
+  --text-color: rgb(51, 47, 47);
+}
+
+.blue {
+  --primary: powderblue;
+  --secondary: deepskyblue;
+  --text-color: powderblue;
+}
+
+.green {
+  --primary: darkseagreen;
+  --secondary: seagreen;
+  --text-color: darkseagreen;
+}
