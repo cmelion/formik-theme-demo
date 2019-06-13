@@ -1,5 +1,4 @@
 import React from 'react'
-import { hot } from "react-hot-loader";
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Button } from '../button'
@@ -28,4 +27,4 @@ const Themes = () => {
     </ul>
 )};
 
-export default hot(module)(Themes);
+export default Themes;
