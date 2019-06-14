@@ -1,8 +1,8 @@
 import React from "react";
 import Paper from "@material-ui/core/Paper";
 import { Formik } from "formik";
-import InputForm, { submitValues } from "./index";
-import { Form } from "./form";
+import LoginForm, { submitValues } from "./LoginForm";
+import Form from "./Form";
 import { shallow } from "enzyme";
 
 
@@ -15,7 +15,7 @@ describe('Given a correctly filled in Registration form', () => {
 
     describe('When the user submits the form', () => {
         it("Then the values are logged to the console", async () => {
-            const form = shallow(<InputForm />);
+            const form = shallow(<LoginForm />);
             const formik = form.find(Paper).dive().find(Formik);
             const innerForm = formik.dive().find(Form);
             // Don't test Formik here, but do confirm the correct handler was passed

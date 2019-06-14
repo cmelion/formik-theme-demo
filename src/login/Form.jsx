@@ -4,8 +4,9 @@ import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import LockIcon from "@material-ui/icons/Lock";
 import EmailIcon from "@material-ui/icons/Email";
+import Theme from "../themes/ActiveTheme";
 
-export const Form = props => {
+const Form = props => {
     const {
         values: { email, password },
         errors,
@@ -71,3 +72,5 @@ export const Form = props => {
         </form>
     );
 };
+
+export default Form;

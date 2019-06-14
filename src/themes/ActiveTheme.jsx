@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useSelector } from 'react-redux'
 
-import styles from './themes.module.css'
+import styles from './ActiveTheme.module.css'
 
 const Theme = ({ children }) => {
     const themes = useSelector(state => state.themes);

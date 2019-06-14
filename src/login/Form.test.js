@@ -1,5 +1,5 @@
 import React from "react";
-import { Form } from "./form";
+import Form from "./Form";
 import { mount } from "enzyme";
 import wait from "waait";
 import { Formik } from "formik";
@@ -10,6 +10,7 @@ describe("As someone who wants to Register", () => {
     // TODO: Fix needed for - Warning: An update to Formik inside a test was not wrapped in act(...).
     // https://github.com/jaredpalmer/formik/issues/1543
     // for now just disable warnings in this test.
+    const originalError = console.error;
     beforeAll(() => {
         console.error = jest.fn();
     });

@@ -10,7 +10,7 @@ const DEFAULT = {
     ]
 };
 
-export default function (state = DEFAULT, action){
+export default function reducer(state = DEFAULT, action){
     switch(action.type){
         case c.SET_THEME:
             return {

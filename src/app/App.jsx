@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './App.module.css';
 import { ActiveTheme, ThemeList } from '../themes';
-import LoginForm from '../login';
+import { LoginForm } from '../login';
 
 const App = () => {
   return (
