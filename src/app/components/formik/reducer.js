@@ -1,6 +1,6 @@
 import { constants as c } from './actions'
 
-// export function login(email, password) {
+// export function formik(email, password) {
 //     return dispatch => {
 //         dispatch(setLoginPending(true));
 //         dispatch(setLoginSuccess(false));

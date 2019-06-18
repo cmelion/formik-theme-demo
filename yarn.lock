@@ -10333,6 +10333,10 @@ toidentifier@1.0.0:
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
 
+"tools-common-styles@https://github.com/HBOCodeLabs/Tools-Common-Styles.git#1.1.2":
+  version "1.1.2"
+  resolved "https://github.com/HBOCodeLabs/Tools-Common-Styles.git#ba55c9869183b8edc2f9d112a31e50712eb073c9"
+
 toposort@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"

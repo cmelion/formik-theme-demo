@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Button } from '../app/components/button'
-import { setTheme } from './actions'
-import './ThemeList.css'
+import { Button } from './button/index'
+import { setTheme } from '../actions'
+import './List.css'
 
 const Themes = () => {
     const themes = useSelector(state => state.themes);

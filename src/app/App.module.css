@@ -8,6 +8,7 @@
 .appLogo {
   animation: appLogoSpin infinite 20s linear;
   height: 80px;
+  fill: var(--text-color);
 }
 
 .appHeader {
