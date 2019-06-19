@@ -1,0 +1,407 @@
+/* -----------------------------------------------------------------------------
+
+  HAMBURGER ICONS COMPONENT
+
+----------------------------------------------------------------------------- */
+
+// vars
+
+$hamburger-button-width: 22px;            // The width of the button area
+$hamburger-button-height: 22px;           // The height of the button area
+$hamburger-bar-thickness: 2px;            // The thickness of the button bars
+$hamburger-button-pad: 9px;               // The left/right padding between button area and bars.
+$hamburger-bar-space: 5px;                // The spacing between button bars
+$hamburger-transistion-duration: 0.25s;   // The transition duration
+
+/**
+ * Toggle Switch Globals
+ *
+ * All switches should take on the class `hamburger` as well as their
+ * variant that will give them unique properties. This class is an overview
+ * class that acts as a reset for all versions of the icon.
+ */
+
+.hamburger {
+  min-width: unset;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: $hamburger-button-width;
+  height: $hamburger-button-width;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  transition: background $hamburger-transistion-duration;
+  background-color: transparent;
+
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+
+  &:focus {
+    outline: none;
+  }
+
+  .bar-item {
+    display: block;
+    position: absolute;
+    top: ($hamburger-button-width / 2) - ($hamburger-bar-thickness / 2);
+    left: $hamburger-button-pad;
+    right: $hamburger-button-pad;
+    height: $hamburger-bar-thickness;
+    background: rgb(255,255,255);
+  }
+
+  .bar-item::before,
+  .bar-item::after {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 100%;
+    height: $hamburger-bar-thickness;
+    background-color: #fff;
+    content: "";
+  }
+
+  .bar-item::before {
+    top: -$hamburger-bar-thickness - $hamburger-bar-space;
+  }
+
+  .bar-item::after {
+    bottom: -$hamburger-bar-thickness - $hamburger-bar-space;
+  }
+
+
+}
+
+/**
+ * Style 1
+ *
+ * Rotating hamburger icon (rot), that simply rotates 90 degrees when activated.
+ * Nothing too fancy, simple transition.
+ */
+
+.hamburger--rot {
+  background-color: rgb(40,170,220);
+
+  .bar-item {
+    transition: transform $hamburger-transistion-duration;
+  }
+
+  /* active state, i.e. menu open */
+  &.is-active {
+    background-color: darken(rgb(40,170,220), 20%);
+
+    .bar-item {
+      transform: rotate(90deg);
+    }
+  }
+
+}
+
+/**
+ * Style 2
+ *
+ * Hamburger to "x" (htx). Takes on a hamburger shape, bars slide
+ * down to center and transform into an "x".
+ */
+
+.hamburger--htx {
+  //background-color: rgb(255,50,100);
+}
+
+.hamburger--htx .bar-item {
+  width: 100%;
+  left: 0;
+  transition: background 0s $hamburger-transistion-duration;
+}
+
+.hamburger--htx .bar-item::before,
+.hamburger--htx .bar-item::after {
+  transition-duration: $hamburger-transistion-duration, $hamburger-transistion-duration;
+  transition-delay: $hamburger-transistion-duration, 0s;
+}
+
+.hamburger--htx .bar-item::before {
+  transition-property: top, transform;
+}
+
+.hamburger--htx .bar-item::after {
+  transition-property: bottom, transform;
+}
+
+/* active state, i.e. menu open */
+
+.hamburger--htx.is-active {
+  //background-color: darken(rgb(255,50,100), 20%);
+}
+
+.hamburger--htx.is-active span {
+  background: none;
+}
+
+.hamburger--htx.is-active .bar-item::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.hamburger--htx.is-active .bar-item::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.hamburger--htx.is-active .bar-item::before,
+.hamburger--htx.is-active .bar-item::after {
+  transition-delay: 0s, $hamburger-transistion-duration;
+}
+
+/**
+ * Style 3
+ *
+ * Hamburger to left-arrow (htla). Hamburger menu transforms to a left-pointing
+ * arrow. Usually indicates an off canvas menu sliding in from left that
+ * will be close on re-click of the icon.
+ */
+
+.hamburger--htla .bar-item {
+  transition: transform $hamburger-transistion-duration;
+}
+
+.hamburger--htla .bar-item::before,
+.hamburger--htla .bar-item::after {
+
+}
+
+.hamburger--htla .bar-item::before {
+  transform-origin: top right;
+  transition: transform $hamburger-transistion-duration, width $hamburger-transistion-duration, top $hamburger-transistion-duration;
+}
+
+.hamburger--htla .bar-item::after {
+  transform-origin: bottom right;
+  transition: transform $hamburger-transistion-duration, width $hamburger-transistion-duration, bottom $hamburger-transistion-duration;
+}
+
+/* active state, i.e. menu open */
+
+.hamburger--htla.is-active .bar-item {
+  transform: rotate(180deg);
+}
+
+.hamburger--htla.is-active .bar-item::before,
+.hamburger--htla.is-active .bar-item::after {
+  width: 50%;
+}
+
+.hamburger--htla.is-active .bar-item::before {
+  top: 0;
+  transform: translateX($hamburger-button-width/2 - $hamburger-button-pad + $hamburger-bar-thickness) translateY($hamburger-bar-thickness/2) rotate(45deg);
+}
+
+.hamburger--htla.is-active .bar-item::after {
+  bottom: 0;
+  transform: translateX($hamburger-button-width/2 - $hamburger-button-pad + $hamburger-bar-thickness) translateY(-$hamburger-bar-thickness/2) rotate(-45deg);
+}
+
+/**
+ * Style 4
+ *
+ * Hamburger to right-arrow (htra). Hamburger menu transforms to a
+ * right-pointing arrow. Usually indicates an off canvas menu sliding in from
+ * right that will be close on re-click of the icon.
+ */
+
+.hamburger--htra {
+  background-color: rgb(255,150,80);
+}
+
+.hamburger--htra .bar-item {
+  transition: transform $hamburger-transistion-duration;
+}
+
+.hamburger--htra .bar-item::before,
+.hamburger--htra .bar-item::after {
+
+}
+
+.hamburger--htra .bar-item::before {
+  transform-origin: top left;
+  transition: transform $hamburger-transistion-duration, width $hamburger-transistion-duration, top $hamburger-transistion-duration;
+}
+
+.hamburger--htra .bar-item::after {
+  transform-origin: bottom left;
+  transition: transform $hamburger-transistion-duration, width $hamburger-transistion-duration, bottom $hamburger-transistion-duration;
+}
+
+/* active state, i.e. menu open */
+
+.hamburger--htra.is-active {
+  background-color: darken(rgb(255,150,80), 20%);
+}
+
+.hamburger--htra.is-active .bar-item {
+  transform: rotate(180deg);
+}
+
+.hamburger--htra.is-active .bar-item::before,
+.hamburger--htra.is-active .bar-item::after {
+  width: 50%;
+}
+
+.hamburger--htra.is-active .bar-item::before {
+  top: 0;
+  transform: translateX(-$hamburger-bar-thickness) translateY($hamburger-bar-thickness/2) rotate(-45deg);
+}
+
+.hamburger--htra.is-active .bar-item::after {
+  bottom: 0;
+  transform: translateX(-$hamburger-bar-thickness) translateY(-$hamburger-bar-thickness/2) rotate(45deg);
+}
+
+/**
+ * Style 5
+ *
+ * Grid to "x" (grid). Grid menu transforms to an "x".
+ * Usually indicates an off canvas menu sliding in from
+ * top that will be closed on re-click of the icon.
+ */
+
+$tcon-grid-color: grey !default;
+$tcon-grid-base: .2rem !default;
+$tcon-grid-border-radius: 3px !default;
+$tcon-grid-space: ($tcon-grid-base) !default;
+$tcon-transition: .25s !default;
+
+.tcon-grid {
+  .tcon-grid__item {
+    width: $tcon-grid-base;
+    height: $tcon-grid-base;
+    border-radius: $tcon-grid-border-radius;
+    background: $tcon-grid-color;
+    color: $tcon-grid-color;
+    transition: $tcon-transition;
+    position: absolute;
+    top: 37%;
+    left: 38%;
+  }
+
+  &.is-active {
+    transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8);
+
+    .tcon-grid__item {
+      width: $tcon-grid-base + $tcon-grid-base;
+      height: $tcon-grid-base + $tcon-grid-base;
+      border-radius: 0;
+      box-shadow: 0 -0.35rem, 0 -.7rem, 0.35rem 0, -.7rem 0, .7rem 0, -0.35rem 0, 0 .7rem, 0 0.35rem;
+    }
+  }
+}
+
+.tcon-grid--rearrange {
+  .tcon-grid__item {
+    box-shadow:
+            -($tcon-grid-base+$tcon-grid-space) 0 -($tcon-grid-base+$tcon-grid-space),
+            0 0 -($tcon-grid-base+$tcon-grid-space),
+                    ($tcon-grid-base+$tcon-grid-space) (-($tcon-grid-base + $tcon-grid-space)),
+            -($tcon-grid-base+$tcon-grid-space) 0,
+            $tcon-grid-base+$tcon-grid-space 0,
+            -($tcon-grid-base+$tcon-grid-space) ($tcon-grid-base + $tcon-grid-space),
+            0 ($tcon-grid-base+$tcon-grid-space),
+                    ($tcon-grid-base+$tcon-grid-space) ($tcon-grid-base + $tcon-grid-space);
+  }
+}
+
+/**
+ * Style 6
+ *
+ * Caron to Caret (caret). Downward-pointing arrow transforms to an
+ * upward-pointing arrow. Usually indicates an off canvas menu sliding in from
+ * top that will be closed on re-click of the icon.
+ */
+
+.circumflex {
+  font-size: 0;
+
+  .circumflex-item {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .circumflex-item:before {
+    content: '';
+    position: absolute;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    transition: 0.25s;
+  }
+
+  .circumflex-item:after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: -6px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    transition: 0.25s;
+  }
+
+  &:not(.is-active) .circumflex-item:before {
+    top: -6px;
+    left: 5px;
+    border-top: 6px solid #f4efef;
+
+  }
+
+  &:not(.is-active) .circumflex-item:after {
+    border-top: 4px solid #2f2c2c;
+  }
+
+  &.is-active {
+    .circumflex-item:before {
+      top: -8px;
+      left: 5px;
+      border-bottom: 6px solid #f4efef;
+    }
+
+    .circumflex-item:after {
+      border-bottom: 4px solid #2f2c2c;
+    }
+  }
+}
+
+/**
+ * Style 7
+ *
+ * Text Only. A simple text button.
+ */
+
+.text-only {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  line-height: normal;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  padding: 9px;
+
+  &:hover {
+    color: white;
+  }
+
+  &.is-active {
+    color: white;
+  }
+
+  .text-button {
+    border-radius: 2px;
+  }
+}

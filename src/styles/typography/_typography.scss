@@ -1,0 +1,122 @@
+html, body {
+  font-size: 15px;
+  background-color: $page-color;
+  color: $dark;
+  font-family: $default-font-family
+}
+
+button, input, textarea {
+  font-family: $default-font-family;
+}
+
+
+@function getRem($px) {
+  @return ($px/$default-font-size) * 1rem;
+}
+
+@mixin typography-default() {
+
+  h1,
+  .title,
+  .subtitle,
+  .main-menu,
+  .hint {
+    color: $light;
+    &.hover:hover{
+      color: $cta-color;
+    }
+  }
+
+  h1, h2, h3, h4 {
+    font-weight: normal;
+  }
+
+  h1 {
+    font-size: getRem(20px);
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  h3 {
+    font-size: getRem(12px);
+  }
+
+  h4 {
+    font-size: getRem(10px);
+  }
+
+  p {
+    line-height: getRem(16px);
+  }
+
+  a {
+    color: $link-color;
+    text-decoration: none;
+    &:hover {
+      color: $link-color-alt;
+    }
+  }
+
+  .title {
+    @extend h1;
+  }
+
+  .subtitle {
+    @extend h2;
+    letter-spacing: getRem(.47px);
+  }
+
+  .main-menu {
+    a, .menu-item {
+      background: none;
+      border: none;
+      font-size: getRem(12px);
+      color: $light;
+      text-transform: uppercase;
+      &:hover {
+        color: $bright;
+      }
+    }
+
+  }
+
+  .description {
+    font-size: getRem(12px);
+  }
+
+  .details {
+    font-size: getRem(10px);
+    color: $medium;
+    &.hover:hover {
+      color: $cta-color;
+    }
+  }
+
+  .cta {
+    font-size: getRem(12px);
+    text-transform: uppercase;
+    color: $cta-color;
+    cursor: pointer;
+    &:hover {
+      color: $cta-color-alt;
+    }
+  }
+
+  //for typically non-interactive elements (p, span, h1)
+  .hover:hover {
+    color: $cta-color;
+    cursor: pointer;
+  }
+
+  .disabled,
+  .main-menu.disabled a,
+  .main-menu a.disabled {
+      color: lighten($light,20%);
+      pointer-events: none;
+  }
+
+}
+
+@include typography-default();

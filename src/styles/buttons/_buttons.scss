@@ -1,0 +1,63 @@
+@mixin button-disabled($color) {
+  button,
+  input[type=button],
+  input[type=submit] {
+    &.disabled, &[disabled] {
+      background-color: transparent;
+      border-color: $color;
+      color: $color;
+    }
+  }
+}
+
+button,
+input[type=button],
+input[type=submit] {
+  outline: none;
+  border: 2px solid $cta-color;
+  background-color: $cta-color;
+  border-radius: $border-radius;
+  font-size: getRem(12px);
+  letter-spacing: 0;
+  color: $bright;
+  text-transform: uppercase;
+  padding: .675em 1rem .4em 1rem;
+  min-width: 100px;
+  cursor: pointer;
+  line-height: 1;
+  &:hover, &.loading {
+    background-color: $cta-color-alt;
+    border-color: $cta-color-alt;
+  }
+}
+
+@include button-disabled($light);
+
+.btn-secondary, input[type=reset] {
+  @extend button;
+  background-color: transparent;
+  color: $cta-color;
+  &:hover, &.loading {
+    background-color: transparent;
+    color: $cta-color-alt;
+  }
+  &.loading {
+
+  }
+}
+
+.buttons {
+  button,
+  input[type=button],
+  input[type=submit] {
+    margin: 0 .5em;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+

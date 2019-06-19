@@ -1,0 +1,35 @@
+$tools-common-style-path: "./" !default;
+
+//BASE COLORS
+$darker: #1C1E24;
+$dark: #252830;
+$medium: #595659;
+$light: #999999;
+$bright: white;
+
+//BRAND COLORS
+$hbo-blue: #03A8EE;
+$hbo-light-blue: #29D2E8;
+$hbo-teal: #1FB3B6;
+$hbo-gold: #C9AC3B;
+
+//SEMANTIC COLORING
+$link-color: $hbo-blue;
+$link-color-alt: $hbo-light-blue;
+$cta-color: $hbo-blue;
+$cta-color-alt: $hbo-light-blue;
+$notification-color: $hbo-teal;
+$page-color: #F5F6F4;
+
+//CONTAINER PROPERTIES
+$header-height: 60px;
+$border-radius: 2px;
+$shadow: 0 2px 5px 0 rgba(0,0,0,0.50);
+
+//FONT
+$default-font-family: "StreetB", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$default-font-size: 15px;
+
+//SCREEN SIZES
+$desktop: 1024px;
+$tablet: 768px;

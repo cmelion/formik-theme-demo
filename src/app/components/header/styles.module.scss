@@ -1,0 +1,19 @@
+.logo {
+  animation: logoSpin infinite 20s linear;
+  height: 60px;
+  fill: var(--text-color);
+}
+
+.header {
+  background-color: var(--secondary);
+  color: var(--text-color);
+
+  .title, .subtitle {
+    color: var(--text-color);
+  }
+}
+
+@keyframes logoSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

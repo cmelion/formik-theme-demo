@@ -1,0 +1,92 @@
+.tools-common-header {
+  background-color: $darker;
+  display: flex;
+  height: $header-height;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 getRem(20px);
+
+  .logo {
+    min-height: $header-height/2;
+    height: 2rem;
+    transform: translateY(-3px);
+    min-width: getRem(48px);
+  }
+
+  .header-button {
+    background: none;
+    border: none;
+    text-transform: uppercase;
+    color: $light;
+    margin: 0 .5rem;
+    &:hover {
+      color: $bright;
+      background: none;
+      border: none;
+    }
+  }
+
+  .header-titles {
+    display: flex;
+    align-items: center;
+    > * {
+      color: $light;
+    }
+    .hamburger {
+      margin-right: 1rem;
+    }
+  }
+
+  .header-subtitle {
+    display: none;
+  }
+
+  .header-title {
+    font-size: getRem(20px);
+    margin-left: .5rem;
+  }
+
+  .header-menu {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@include breakPoint($tablet) {
+  .tools-common-header {
+    .header-subtitle {
+      display: inherit;
+      position: relative;
+      padding-left: 2rem;
+      font-size: 1rem;
+      margin-left: 2rem;
+      white-space: nowrap;
+      box-sizing: border-box;
+      &:before {
+        position: absolute;
+        content: ' ';
+        border-left: 1px solid $light;
+        height: getRem(30px);
+        left: 0;
+        width: 1px;
+        transform: translateY(-.5rem);
+      }
+    }
+  }
+}
+
+@include breakPoint($desktop) {
+  .tools-common-header {
+
+    .header {
+      padding: 0 getRem(40px);
+    }
+
+    .header-menu {
+      .hamburger {
+        display: none;
+      }
+    }
+  }
+}

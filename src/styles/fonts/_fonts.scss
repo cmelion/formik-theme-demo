@@ -1,0 +1,29 @@
+@mixin fontFace($family,$src,$style: normal,$weight: normal) {
+  @font-face {
+    font-family: $family;
+    src: url('#{$src}.woff2') format('woff2'), url('#{$src}.woff') format('woff'),;
+    font-style: $style;
+    font-weight: $weight;
+  }
+}
+
+//FONT
+$font-default: 'StreetB';
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$street-prefix: '#{$tools-common-style-path}/assets/font/streetb/StreetB-';
+
+//@include fontFace($default-font, '#{$street-prefix}Thin', normal, $font-weight-light);
+//@include fontFace($default-font, '#{$street-prefix}ThinItalic', italic, $font-weight-light);
+
+@include fontFace($font-default, '#{$street-prefix}Regular', normal, $font-weight-normal);
+@include fontFace($font-default, '#{$street-prefix}RegularItalic', italic, $font-weight-normal);
+
+@include fontFace($font-default, '#{$street-prefix}Medium', normal, $font-weight-medium);
+
+//@include fontFace($default-font, '#{$street-prefix}MediumItalic', italic, $font-weight-medium);
+
+//@include fontFace($default-font, '#{$street-prefix}Bold', normal, 900);
+//@include fontFace($default-font, '#{$street-prefix}BoldItalic', italic, $font-weight-bold);
