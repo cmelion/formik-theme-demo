@@ -1,10 +1,12 @@
 import React from 'react';
-
+import { hot, setConfig } from 'react-hot-loader';
 import { ActiveTheme, ThemeList } from '../themes';
 import { LoginForm } from './components/formik';
 import { Header } from './components/header';
 
 import styles from './App.module.css';
+
+setConfig({showReactDomPatchNotification: false});
 
 const App = () => {
   return (
@@ -18,4 +20,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default hot(module)(App);
