@@ -1,6 +1,6 @@
 :root, .dark {
   --primary: lightgrey;
-  --secondary: #222;
+  --secondary: rgba(42, 7, 34, 0.93);
   --text-color: white;
 }
 
