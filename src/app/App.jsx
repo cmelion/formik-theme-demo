@@ -10,7 +10,7 @@ const App = () => {
       <ActiveTheme>
           <div className={styles.app}>
               <header className={styles.appHeader}>
-                  <Logo fill={black} className={styles.appLogo} />
+                  <Logo className={styles.appLogo} />
                   {/*<img src="logo.svg" className={styles.appLogo} alt="logo" />*/}
                   <h1 className={styles.appTitle}>CSS Modules with CSS Custom Properties (variables)</h1>
                   <p>select a theme</p>
