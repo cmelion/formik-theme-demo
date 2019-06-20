@@ -3,7 +3,7 @@ import cx from 'classnames';
 import Link from 'redux-first-router-link';
 import {Hamburger} from './components/hamburger';
 import { Logo } from './components/logo';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 
 export const LOGOUT_MENU = 'logout-menu';
 
@@ -15,6 +15,7 @@ const Header  = ({loggedIn, user, ...rest}) => {
 
     const logoutBtnClasses = cx({
         'header-button user-info': true,
+        [styles.login]: true,
         login: true
     });
 

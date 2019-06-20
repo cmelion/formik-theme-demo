@@ -7,8 +7,11 @@
 .header {
   background-color: var(--secondary);
   color: var(--text-color);
+}
 
-  .title, .subtitle {
+.title, .subtitle, .login {
+  color: var(--text-color) !important;
+  > * {
     color: var(--text-color);
   }
 }
