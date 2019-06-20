@@ -14,8 +14,7 @@ export const logout = () => ({type: LOGOUT_PENDING});
 const Header  = ({loggedIn, user, ...rest}) => {
 
     const logoutBtnClasses = cx({
-        'header-button user-info': true,
-        [styles.login]: true,
+        'user-info': true,
         login: true
     });
 
@@ -39,7 +38,7 @@ const Header  = ({loggedIn, user, ...rest}) => {
                 <span className={cx({'header-subtitle': true, [styles.subtitle]: true})}>App Description</span>
             </div>
             <div className={headerMenuClass}>
-                <div className="menu-items">
+                <div className={cx({'menu-items': true, [styles.login]: true})}>
                     {
                         (loggedIn) ?
                             <div className={logoutBtnClasses}
