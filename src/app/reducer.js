@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
 import { reducer as themes } from '../themes';
-import { reducer as authorization } from './components/formik';
+import { location } from './routes';
 
-export default combineReducers({ themes, authorization });
+export default combineReducers({ location, themes });

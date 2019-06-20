@@ -14,7 +14,7 @@ import ActionTypes from '../actions/action-types';
 // CSS HAMBURGER MENU REDUCER
 //-------------------------------------------------------------------
 /* eslint-disable indent */
-export const hamburgerMenu = (state = {isActive: false, target: undefined}, {type, payload}) => {
+const reducer = (state = {isActive: false, target: undefined}, {type, payload}) => {
 
     switch (type) {
         case ActionTypes.TOGGLE_HAMBURGER:
@@ -24,3 +24,5 @@ export const hamburgerMenu = (state = {isActive: false, target: undefined}, {typ
             return state;
     }
 };
+
+export default reducer;

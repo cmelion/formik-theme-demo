@@ -1,22 +1,9 @@
-
-/*
- Copyright (c) 2016 Home Box Office, Inc. as an unpublished
- work. Neither this material nor any portion hereof may be copied
- or distributed without the express written consent of Home Box Office, Inc. *
- This material also contains proprietary and confidential information
- of Home Box Office, Inc. and its suppliers, and may not be used by or
- disclosed to any person, in whole or in part, without the prior written
- consent of Home Box Office, Inc.
- */
-
 import React from 'react';
 import cx from 'classnames';
 
-require('./style.scss');
-
 //TODO: now that this isn't just a Hamburger, maybe it should be renamed?
 // Assumes target state is in sync (no shared state)
-export const Hamburger = ({children, hamburgerMenu, hamburgerMenuToggled, menuType, target, className}) => {
+const Hamburger = ({children, hamburgerMenu, hamburgerMenuToggled, menuType, target, className}) => {
     const hamburgerStyles = [
         'rot',
         'htx',
@@ -45,8 +32,7 @@ export const Hamburger = ({children, hamburgerMenu, hamburgerMenuToggled, menuTy
                       'hamburger--htra': menuType === 'htra',
                       'tcon-grid tcon-grid--rearrange': menuType === 'grid',
                       circumflex: menuType === 'caret',
-                      'text-only': menuType === 'text',
-                      'is-active': hamburgerMenu.target === target && hamburgerMenu.isActive
+                      'text-only': menuType === 'text'
                   })
               }>
             <span className={
@@ -61,10 +47,12 @@ export const Hamburger = ({children, hamburgerMenu, hamburgerMenuToggled, menuTy
     );
 };
 
-Hamburger.propTypes = {
-    hamburgerMenu: React.PropTypes.object.isRequired,
-    hamburgerMenuToggled: React.PropTypes.func.isRequired,
-    menuType: React.PropTypes.string,
-    className: React.PropTypes.string,
-    target: React.PropTypes.string.isRequired
-};
+// Hamburger.propTypes = {
+//     hamburgerMenu: React.PropTypes.object.isRequired,
+//     hamburgerMenuToggled: React.PropTypes.func.isRequired,
+//     menuType: React.PropTypes.string,
+//     className: React.PropTypes.string,
+//     target: React.PropTypes.string.isRequired
+// };
+
+export default Hamburger;

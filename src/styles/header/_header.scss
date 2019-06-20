@@ -45,6 +45,15 @@
   .header-title {
     font-size: getRem(20px);
     margin-left: .5rem;
+
+    a:visited {
+      color: inherit;
+    }
+    a:hover {
+      color: $bright;
+      background: none;
+      border: none;
+    }
   }
 
   .header-menu {

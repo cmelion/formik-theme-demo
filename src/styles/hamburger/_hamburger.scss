@@ -16,7 +16,7 @@ $hamburger-transistion-duration: 0.25s;   // The transition duration
 /**
  * Toggle Switch Globals
  *
- * All switches should take on the class `hamburger` as well as their
+ * All switches should take on the class `menu-icon` as well as their
  * variant that will give them unique properties. This class is an overview
  * class that acts as a reset for all versions of the icon.
  */
@@ -86,7 +86,7 @@ $hamburger-transistion-duration: 0.25s;   // The transition duration
 /**
  * Style 1
  *
- * Rotating hamburger icon (rot), that simply rotates 90 degrees when activated.
+ * Rotating menu-icon icon (rot), that simply rotates 90 degrees when activated.
  * Nothing too fancy, simple transition.
  */
 
@@ -111,7 +111,7 @@ $hamburger-transistion-duration: 0.25s;   // The transition duration
 /**
  * Style 2
  *
- * Hamburger to "x" (htx). Takes on a hamburger shape, bars slide
+ * Hamburger to "x" (htx). Takes on a menu-icon shape, bars slide
  * down to center and transform into an "x".
  */
 

@@ -1,22 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { applyMiddleware, compose, createStore } from 'redux';
-import thunk from 'redux-thunk';
-
-import './styles.scss';
-import { App, reducer as rootReducer} from './app';
 import { Provider } from 'react-redux'
-// import registerServiceWorker from './registerServiceWorker'
 
+import { App } from './app';
+import configureStore from './app/store';
+import './styles.scss';
 import "typeface-roboto";
 
-const composeEnhancer = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-    rootReducer,
-    composeEnhancer(applyMiddleware(thunk)));
-
-const styleNode = document.createComment('jss-insertion-point');
-document.head.insertBefore(styleNode, document.head.firstChild);
+const store = configureStore();
 
 render(
     <Provider store={store}>
@@ -36,5 +27,3 @@ if (module.hot && process.env.NODE_ENV === "development") {
         );
     })
 }
-
-// registerServiceWorker()
