@@ -5,12 +5,12 @@
 }
 
 .header {
-  background-color: var(--secondary) !important;
-  color: var(--text-color) !important;
-}
+  background-color: var(--secondary);
+  color: var(--text-color);
 
-.title, .subtitle {
-  color: var(--text-color) !important;
+  .title, .subtitle {
+    color: var(--text-color);
+  }
 }
 
 @keyframes logoSpin {

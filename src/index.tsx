@@ -1,11 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+
+// Import global styles before app is configured
+import './styles.scss';
+import "typeface-roboto";
 
 import { App } from './app';
 import configureStore from './app/store';
-import './styles.scss';
-import "typeface-roboto";
+
 
 const store = configureStore();
 
