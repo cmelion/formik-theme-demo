@@ -35,8 +35,7 @@
     "yup": "^0.27.0"
   },
   "scripts": {
-    "start": "concurrently -r -k \"npm run server\" \"npm run dev\"",
-    "dev": "react-scripts start ",
+    "start": "react-scripts start ",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "server": "nodemon --watch ./json-server/ ./json-server/server.js --delay 2"
