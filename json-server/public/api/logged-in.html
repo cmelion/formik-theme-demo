@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tools Login</title>
+    <style>
+        .login-container {
+            display: flex;
+            justify-content: center;
+            font-family: sans-serif;
+            font-size: 14px;
+            margin: -8px;
+            height: 450px;
+        }
+
+        .login-container .row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .login-container a {
+            color: #2eb0e5;
+            text-decoration: none;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+
+        .login-container form {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 40px;
+            color: white;
+            height: 380px;
+            min-height: 380px;
+            width: 380px;
+            text-align: center;
+        }
+
+        .login-container form .logo {
+            width: 125px;
+            height: 54px;
+            margin-left: 20px;
+            float: left;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMiIgYmFzZVByb2ZpbGU9InRpbnkiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgoJIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNjMuNTM4cHgiIGhlaWdodD0iMjdweCIgdmlld0JveD0iMCAwIDYzLjUzOCAyNyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxlbGxpcHNlIGZpbGw9IiNGRkZGRkYiIGN4PSI0OS4zODMiIGN5PSIxMy40ODYiIHJ4PSI0Ljc3OSIgcnk9IjQuNzg3Ii8+CjxnPgoJPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQ5LjQ0MSwwLjkzOGMtNS40NzksMC0xMC4xMzYsMy41MjEtMTEuODM4LDguNDI3YzAuMDY1LTAuNDgsMC4wOTUtMS4wMDYsMC4wOTUtMS41ODMKCQljMC0xLjgxNi0xLjA0MS0zLjc4OC0yLjUzMS00Ljg1OGMtMS4zOTQtMS4wMDYtMi44MDEtMS42MTktNC40ODUtMS42MTlIMTkuODI4VjI2LjAySDMwYzIuMDA5LDAsMy43My0wLjczOCw1LjQ0Ny0xLjk3MgoJCWMxLjU4OC0xLjEzNiwyLjYwMi0zLjE1NiwyLjYwMi01LjA2OWMwLTAuMDktMC4wMDEtMC4xNzgtMC4wMDItMC4yNjdjMS45NzksNC4zMiw2LjMzNiw3LjMyMSwxMS4zOTQsNy4zMjEKCQljNi45MiwwLDEyLjUzLTUuNjE4LDEyLjUzLTEyLjU0N0M2MS45NzEsNi41NTcsNTYuMzYxLDAuOTM4LDQ5LjQ0MSwwLjkzOHogTTI2LjE2Niw2LjY2MWgyLjY1M2MxLjI5NCwwLDIuNjUzLDAuMjI3LDIuNjUzLDEuODc5CgkJYzAuMDk0LDEuNDkxLTAuNzk3LDIuMzc1LTIuNTg1LDIuMzc1bC0yLjcyMSwwLjAxMVY2LjY2MXogTTMxLjA4OCwxOS45NTNjLTAuNTUyLDAuNDU0LTEuMjk4LDAuNDIzLTEuOTc5LDAuNDIzaC0yLjk1M3YtNC41MzgKCQloMi42OTNjMS42MywwLDMuMDI2LDAuNDI0LDMuMDk3LDIuMzI4QzMxLjk0NiwxOC43ODQsMzEuNTc1LDE5LjU5NiwzMS4wODgsMTkuOTUzeiBNMzcuMDYxLDE1LjE4OQoJCWMtMC40ODctMC42NDQtMS4xOTMtMS4yNTItMi4yMTUtMS44NDFjMS4xNTUtMC41OTgsMS44OTYtMS4zMywyLjMzOS0yLjMwN2MtMC4xNTYsMC43OTItMC4yMzgsMS42MS0wLjIzOCwyLjQ0OAoJCUMzNi45NDYsMTQuMDY2LDM2Ljk4NSwxNC42MzQsMzcuMDYxLDE1LjE4OXogTTQ5LjM4MywyMC4wMTRjLTMuNTk5LDAtNi41MTctMi45MjMtNi41MTctNi41MjdjMC0zLjYwNSwyLjkxNy02LjUyOCw2LjUxNy02LjUyOAoJCXM2LjUxNywyLjkyMyw2LjUxNyw2LjUyOEM1NS44OTksMTcuMDkxLDUyLjk4MiwyMC4wMTQsNDkuMzgzLDIwLjAxNHoiLz4KCTxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iMTIuMDcyLDEwLjM3NSA2Ljk1MSwxMC4zNzUgNi45NTEsMS4yNiAwLjYzNSwxLjI2IDAuNjM1LDI2LjA2MiA2LjkyLDI2LjA2MiA2LjkyLDE2LjM4MQoJCTEyLjA0MSwxNi4zODEgMTIuMDQxLDI2LjA2MiAxOC40NCwyNi4wNjIgMTguNDQsMS4yNiAxMi4wNzIsMS4yNiAJIi8+CjwvZz4KPGc+Cgk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNNjAuODEyLDAuOTgzYzAuNjg4LDAsMS4yMzcsMC41NiwxLjIzNywxLjI2YzAsMC43MTEtMC41NDgsMS4yNjUtMS4yNDMsMS4yNjUKCQljLTAuNjg5LDAtMS4yNDktMC41NTQtMS4yNDktMS4yNjVjMC0wLjcsMC41Ni0xLjI2LDEuMjQ5LTEuMjZINjAuODEyeiBNNjAuODA2LDEuMThjLTAuNTU0LDAtMS4wMDgsMC40NzYtMS4wMDgsMS4wNjMKCQljMCwwLjU5OSwwLjQ1NCwxLjA2OSwxLjAxNCwxLjA2OWMwLjU2LDAuMDA1LDEuMDA3LTAuNDcxLDEuMDA3LTEuMDYzYzAtMC41OTQtMC40NDgtMS4wNjktMS4wMDctMS4wNjlINjAuODA2eiBNNjAuNTcsMi45NzcKCQloLTAuMjI0VjEuNTcxYzAuMTE4LTAuMDE3LDAuMjI5LTAuMDMzLDAuMzk3LTAuMDMzYzAuMjEyLDAsMC4zNTMsMC4wNDQsMC40MzcsMC4xMDVzMC4xMjgsMC4xNTcsMC4xMjgsMC4yOTEKCQljMCwwLjE4Ni0wLjEyMywwLjI5Ny0wLjI3NCwwLjM0MnYwLjAxMmMwLjEyMywwLjAyMiwwLjIwOCwwLjEzNCwwLjIzNSwwLjM0MWMwLjAzNCwwLjIxOSwwLjA2NywwLjMwMywwLjA5LDAuMzQ4aC0wLjIzNQoJCWMtMC4wMzMtMC4wNDUtMC4wNjctMC4xNzQtMC4wOTUtMC4zNThjLTAuMDM0LTAuMTgtMC4xMjMtMC4yNDYtMC4zMDItMC4yNDZINjAuNTdWMi45Nzd6IE02MC41NywyLjE5OGgwLjE2MwoJCWMwLjE4NCwwLDAuMzQxLTAuMDY3LDAuMzQxLTAuMjRjMC0wLjEyNC0wLjA4OS0wLjI0Ny0wLjM0MS0wLjI0N2MtMC4wNzMsMC0wLjEyNCwwLjAwNi0wLjE2MywwLjAxMlYyLjE5OHoiLz4KPC9nPgo8L3N2Zz4K);
+        }
+
+        .login-container form h1.tools {
+            margin: -4px 0 0 5px;
+            font-weight: normal;
+            float: left;
+            line-height: normal;
+            font-size: 55px;
+        }
+
+        .login-container form .messaging {
+            height: 40px;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <form method="post"
+          name="login">
+        <div class="row header">
+            <div class="logo">&nbsp;</div>
+            <h1 class="tools">Tools</h1>
+        </div>
+        <div class="messaging">
+            <p class="help">
+                Want to learn more? <a href="http://tools.app.com"
+                                       target="_blank">tools.app.com</a>
+            </p>
+        </div>
+    </form>
+</div>
+<script>
+    function getParameterByName(name) {
+        var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+        return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    }
+
+    var authenticatedUser = {
+        token: "eyJhbGciOiJIUzI1NiI",
+        user: {
+            "id": "xxxx",
+            "firstName": "Test",
+            "lastName": "Testerson",
+            "email": getParameterByName('email'),
+            "permissions": [{
+                "userServiceAccount": null,
+                "service": "tavern",
+                "role": "admin",
+                "access": true
+            }, {
+                "userServiceAccount": null,
+                "service": "testing",
+                "role": "admin",
+                "access": true
+            }, {
+                "userServiceAccount": null,
+                "service": "confluence",
+                "role": "admin",
+                "access": true
+            }, {
+                "userServiceAccount": null,
+                "service": "test service",
+                "role": "admin",
+                "access": true
+            }, {
+                "email": getParameterByName('email'),
+                "service": "raven",
+                "role": "admin",
+                "userServiceAccount": null,
+                "isExternal": false,
+                "access": true
+            }, {
+                "email": getParameterByName('email'),
+                "service": "artifactory",
+                "role": "admin",
+                "userServiceAccount": getParameterByName('email'),
+                "isExternal": true,
+                "access": true
+            }, {
+                "email": getParameterByName('email'),
+                "service": "victorops",
+                "role": "admin",
+                "userServiceAccount": getParameterByName('email'),
+                "isExternal": true,
+                "access": true
+            }, {
+                "userServiceAccount": null,
+                "service": "whiteplains",
+                "role": "admin",
+                "access": true
+            }, {
+                "userServiceAccount": null,
+                "service": "bletchley",
+                "role": "admin",
+                "access": true
+            }, {
+                "userServiceAccount": null,
+                "service": "cheddar",
+                "role": "admin",
+                "access": true
+            }, {
+                "userServiceAccount": null,
+                "service": "bacon",
+                "role": "admin",
+                "access": true
+            }, {
+                "userServiceAccount": null,
+                "service": "permissions",
+                "role": "admin",
+                "access": true
+            }, {
+                "email": getParameterByName('email'),
+                "service": "toolshed",
+                "role": "admin",
+                "userServiceAccount": null,
+                "isExternal": false,
+                "access": true
+            }]
+        }
+    };
+
+    var stringified = JSON.stringify(authenticatedUser);
+    localStorage.setItem('authenticatedUser', stringified);
+    //Aways Success Case
+    if (window.top && window.top !== window && window.top.postMessage) {
+        window.top.postMessage(authenticatedUser, '*');
+    }
+    console.log('localstorage', localStorage);
+</script>
+</body>
+</html>

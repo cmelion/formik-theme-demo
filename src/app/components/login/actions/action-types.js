@@ -1,0 +1,9 @@
+// Login
+const LOGIN_FULFILLED = 'LOGIN_FULFILLED';
+const LOGIN_ERROR = 'LOGIN_ERROR';
+
+const LOGOUT = 'LOGOUT';
+const LOGOUT_PENDING = 'LOGOUT_PENDING';
+
+const LoginActionTypes = {LOGIN_FULFILLED, LOGIN_ERROR, LOGOUT, LOGOUT_PENDING};
+export default LoginActionTypes;

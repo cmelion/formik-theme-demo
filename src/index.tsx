@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import './styles.scss';
 import "typeface-roboto";
 
-import { App } from './app';
+import { App } from './app/index';
 import configureStore from './app/store';
 
 

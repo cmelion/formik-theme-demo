@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tools Login</title>
+    <link rel="stylesheet" type="text/css" href="/assets/tools-common-styles.css"/>
+    <style type="text/css">
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+        body, html, h2 {
+            padding: 0;
+            margin: 0;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        input {
+            font-family: "StreetB"
+        }
+
+        input:-webkit-autofill {
+            color: white !important;
+            background: transparent !important;
+            -webkit-box-shadow: 0 0 0px 1000px #1C1E24 inset;
+            -webkit-text-fill-color: white;
+        }
+
+        .dark-theme {
+            background-color: #1C1E24;
+        }
+
+        .messaging.hint {
+            min-height: 1.2rem;
+        }
+
+        #error {
+            font-size: .625rem;
+            padding-top: 0;
+            color: #03A8EE;
+            margin: 0;
+
+        }
+
+        .login-container {
+            box-sizing: border-box;
+            padding: 2rem;
+            height: 100%;
+            overflow: auto;
+            animation: .5s;
+        }
+
+        .user-input {
+            margin: 1rem 0 2rem 0;
+            position: relative;
+            height: 40px;
+        }
+
+        .user-input:first-of-type {
+            margin: 1rem 0;
+        }
+
+        .user-input input {
+            background: none;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #878787;
+            color: white;
+            width: 100%;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            margin-bottom: .2rem;
+        }
+
+        .user-input input[type=password]{
+            letter-spacing: .5em;
+            font-size: .9375em;
+            font-family: Arial;
+        }
+
+        .user-input input:placeholder-shown + .placeholder {
+            position: absolute;
+            pointer-events: none;
+            transform: translateY(-1.5rem);
+            padding-bottom: 1.5em;
+        }
+
+        .user-input input::placeholder {
+            opacity: 0;
+            font-size: 1rem;
+        }
+
+        .user-input input + .placeholder {
+            color: #878787;
+            font-size: .8em;
+            display: block;
+            font-style: italic;
+        }
+
+        .user-input input:focus + .placeholder,
+        .user-input input:not(:placeholder-shown) + .placeholder {
+            font-size: .625em;
+            position: static;
+            padding: 0;
+            transform: translateY(0);
+            font-style: normal;
+
+        }
+
+        label {
+            font-weight: normal;
+        }
+
+        label input[type=checkbox] {
+            background-color: #595659;
+            outline: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            border: none;
+            appearance: none;
+            margin-right: 4px;
+            margin-bottom: 4px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        label input[type=checkbox] + span {
+            color: #878787;
+            font-size: .75rem;
+        }
+
+
+        label input[type=checkbox]:checked {
+            background: #595659 url('/assets/svg/check-white.svg') no-repeat center center;
+            background-size: 13px 14px;
+        }
+
+        label input[type=checkbox]:checked + span {
+            color: white;
+        }
+
+
+        .actions {
+            display: flex;
+            width: 100%
+        }
+
+        .actions button {
+            flex-grow: 1;
+        }
+
+        .actions .btn-secondary {
+            margin-right: 1em;
+        }
+
+        .input-error {
+            display: none;
+            color: #03A8EE;
+            font-size: .625em;
+        }
+
+        .user-input.options {
+            height: auto;
+            margin-bottom: 25px;
+        }
+
+        .user-input input:invalid:not(:placeholder-shown) ~ .placeholder {
+            display: none;
+        }
+
+        .invalid *:invalid ~ .input-error {
+            display: block;
+        }
+
+        *:invalid:focus ~ .input-error {
+            display: none;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+<div class="login-container">
+    <h2>Please log in with app credentials</h2>
+    <div class="messaging hint">
+        <p id="error"></p>
+    </div>
+    <form method="post"
+          novalidate
+          onsubmit="return onSubmit(this)"
+          name="login">
+        <input type="hidden"
+               name="service"/>
+        <input type="hidden"
+               name="token"/>
+        <input type="hidden"
+               name="permission"/>
+
+        <div class="user-input">
+            <input type="email"
+                   name="email"
+                   placeholder=" "
+                   id="email"
+                   required/>
+            <label class="placeholder">Email Address</label>
+            <span class="input-error">app email address required</span>
+        </div>
+
+        <div class="user-input">
+            <input type="password"
+                   name="password"
+                   placeholder=" "
+                   id="password"
+                   required/>
+            <label class="placeholder">Password</label>
+            <span class="input-error">app password required</span>
+        </div>
+
+        <div class="user-input options">
+            <label class="placeholder"
+                   htmlFor="saveEmail">
+                <input type="checkbox"
+                       name="saveEmail"
+                       id="saveEmail"
+                       onchange="localStorage.setItem('saveEmail', this.checked)"
+                />
+                <span>Remember my email</span>
+            </label>
+        </div>
+
+        <div class="actions">
+            <button type="reset"
+                    id="cancelBtn"
+                    class="btn-secondary">Cancel
+            </button>
+
+            <button type="submit"
+                    value="Submit"
+                    class="btn-primary">Sign In
+            </button>
+        </div>
+    </form>
+</div>
+<script>
+    var service, error, token, permission, user,
+        email, emailInput, saveEmailCb, cancelButton;
+
+    emailInput =  document.getElementById('email');
+    saveEmailCb =  document.getElementById('saveEmail');
+    email = localStorage.getItem('email');
+    cancelButton = document.getElementById('cancelBtn');
+
+    function onSubmit(form){
+        var isValid = form.checkValidity();
+        if(!isValid){
+            form.classList.add('invalid')
+        }
+        return isValid;
+    }
+
+    function postMessage(message, targetOrigin){
+        if(top !== window && top.postMessage){
+            var target = targetOrigin ? targetOrigin : '*';
+            top.postMessage(message, target);
+        }
+    }
+
+    function getParameterByName(name, url) {
+        url = url || window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) {
+            return null;
+        }
+        else if (!results[2]) {
+            return '';
+        } else {
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    }
+
+    function hide(elem) {
+        elem.style = 'display: none';
+    }
+
+    function show(elem) {
+        elem.style = '';
+    }
+
+    //Required for everyone
+    service = getParameterByName('service');
+    document.getElementsByName('service')[0].value = service;
+
+    //pre-populate saved data
+    if(email){
+        emailInput.value = email;
+        document.querySelector('input[type=password]').setAttribute('autofocus', true);
+        saveEmailCb.checked = true;
+    }else{
+        emailInput.setAttribute('autofocus', true);
+    }
+
+    //send
+    cancelButton.addEventListener('click',()=>{
+        postMessage('CANCEL');
+    });
+
+    //Error case
+    error = getParameterByName('message') || (!service ? 'You must specify a service parameter in the url for this login view (?service=yourServiceName).' : undefined);
+    if (error) {
+        (function (elem) {
+            elem.style = 'display: block;';
+            elem.innerHTML = error;
+        })(document.getElementById('error'));
+        if (!service) {
+            hide(document.querySelector('form'));
+        }
+    }
+    //Success case
+    else {
+        token = getParameterByName('token') || localStorage.getItem('token');
+        permission = getParameterByName('permission') || localStorage.getItem('permission');
+        user = getParameterByName('user') || localStorage.getItem('user');
+
+        if (token && permission && user) {
+            localStorage.setItem('token', token);
+            localStorage.setItem('permission', permission);
+            localStorage.setItem('user', user);
+
+            hide(document.querySelector('form'));
+
+            document.getElementsByName('token')[0].value = token;
+            document.getElementsByName('permission')[0].value = permission;
+
+            (function (permission, user) {
+                //Case where the user is using the shared login for a different service
+                if (!permission[service] || !permission[service].token) {
+                    document.getElementsByName('login')[0].submit();
+                }
+
+                if(/true/.test(localStorage.getItem('saveEmail'))){
+                    localStorage.setItem('email', user.email);
+                }else{
+                    localStorage.removeItem('email');
+                }
+
+                //Checking whether we should post or not, if we're in an iframe
+                postMessage({
+                    token: permission[service].token,
+                    permission: permission[service],
+                    user: user
+                });
+
+            })(JSON.parse(permission), JSON.parse(user));
+        }
+    }
+
+
+    addEventListener('message', function (e) {
+        if (e.data === 'LOGOUT') {
+            localStorage.removeItem('token');
+            localStorage.removeItem('permission');
+            localStorage.removeItem('user');
+            show(document.querySelector('form'));
+            postMessage('LOGOUT');
+        }
+    });
+
+    function authenticated() {
+        return service && token && permission && permission[service] && user && (function () {
+                return {
+                    token: permission[service].token,
+                    permission: permission[service],
+                    user: user
+                }
+            })(JSON.parse(permission), JSON.parse(user));
+    }
+
+    postMessage('READY');
+</script>
+</body>
+</html>
