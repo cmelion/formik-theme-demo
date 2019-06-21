@@ -12,5 +12,5 @@ module.exports = function(app) {
     };
 
     app.use(proxy(baseURL, options));
-    app.use(proxy('/assets', { target:  defaultTarget + apiPort }));
+    app.use(proxy('/assets/tools-common-styles.css', { target:  defaultTarget + apiPort }));
 };
