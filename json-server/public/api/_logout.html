@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tools Logout</title>
+</head>
+<body>
+<script>
+
+    localStorage.removeItem('authenticatedUser');
+    //Aways Success Case
+    if (window.top && window.top !== window && window.top.postMessage) {
+        window.top.postMessage('LOGGED_OUT', '*');
+    }
+    console.log('localstorage', localStorage);
+</script>
+</body>
+</html>
