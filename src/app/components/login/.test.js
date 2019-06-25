@@ -74,5 +74,5 @@ describe('Login container', () => {
     require('./epics/spec');
 
     // Reducers
-    require('./reducers/.test');
+    require('./reducers/authenticated/.test');
 });

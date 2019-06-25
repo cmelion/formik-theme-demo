@@ -17,14 +17,13 @@ const scenes = {
 
 const App = () => {
     const location = useSelector(state => state.location);
-    return (
-      <ActiveTheme>
-          <div className={styles.app}>
-              <Header />
-              {scenes[location.type]}
-          </div>
-      </ActiveTheme>
-    );
+    const user = useSelector(state => state.user);
+    return <ActiveTheme>
+        <div className={styles.app}>
+            <Header user={user} loggedIn={user.email !== undefined}/>
+            {scenes[location.type]}
+        </div>
+    </ActiveTheme>;
 };
 
 export default hot(module)(App);

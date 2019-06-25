@@ -63,7 +63,7 @@ server.use(function(req, res, next) {
                 break;
 
             // Using local json-server module so stay on same server and use _ to differentiate
-            case '/api/_login.html?service=toolshed':
+            case '/api/_login.html?service=tools':
                 console.log('Login', req.body);
                 res.redirect('/api/logged-in.html?email=' + req.body.email);
                 return;

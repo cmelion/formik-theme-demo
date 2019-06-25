@@ -10,7 +10,6 @@ module.exports = function(app) {
             '^/api/logoutspa':  '/api/logoutspa' + htmlExtension
         }
     };
-
     app.use(proxy(baseURL, options));
     app.use(proxy('/assets/tools-common-styles.css', { target:  defaultTarget + apiPort }));
 };
