@@ -15,9 +15,9 @@ import './style.scss';
 const clientVersion = require('../../../../../../package.json').version;
 
 // Assumes target state is in sync (no shared state)
-export const LogoutMenu = ({hamburgerMenu, hamburgerMenuToggled, info, logout, target}) => {
+export const LogoutMenu = ({hamburgerMenu, toggleHamburgerMenu, info, logout, target}) => {
     const handleClick = () => {
-        hamburgerMenuToggled(!hamburgerMenu.isActive, target);
+        toggleHamburgerMenu(!hamburgerMenu.isActive, target);
         logout();
     };
     return (
@@ -30,13 +30,7 @@ export const LogoutMenu = ({hamburgerMenu, hamburgerMenuToggled, info, logout, t
             <li onClick={handleClick} className="btn-primary">LOGOUT</li>
             <li className="version-info"> &nbsp; </li>
             <li className="version-info">Client: {clientVersion}</li>
-            <li className="version-info">Server: {info.version}</li>
+            {/*<li className="version-info">Server: {info.version}</li>*/}
         </ul>
     );
-};
-
-LogoutMenu.propTypes = {
-    hamburgerMenu: React.PropTypes.object.isRequired,
-    hamburgerMenuToggled: React.PropTypes.func.isRequired,
-    target: React.PropTypes.string.isRequired
 };

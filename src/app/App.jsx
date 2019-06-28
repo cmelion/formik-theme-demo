@@ -16,8 +16,8 @@ const scenes = {
 
 
 const App = () => {
-    const location = useSelector(state => state.location);
-    const user = useSelector(state => state.user);
+    const location  = useSelector(state => state.location);
+    const user      = useSelector(state => state.user);
     return <ActiveTheme>
         <div className={styles.app}>
             <Header user={user} loggedIn={user.email !== undefined}/>

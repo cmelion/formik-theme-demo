@@ -1,1 +1,8 @@
 //base styles come from tools-common-styles
+.circumflex:not(.is-active) .circumflex-item:after {
+  border-top-color: var(--secondary);
+}
+
+.circumflex:not(.is-active) .circumflex-item:before {
+  border-top-color: var(--text-color);
+}

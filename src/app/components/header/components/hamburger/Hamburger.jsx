@@ -1,9 +1,10 @@
 import React from 'react';
 import cx from 'classnames';
+import './style.scss';
 
 //TODO: now that this isn't just a Hamburger, maybe it should be renamed?
 // Assumes target state is in sync (no shared state)
-const Hamburger = ({children, hamburgerMenu, hamburgerMenuToggled, menuType, target, className}) => {
+const Hamburger = ({children, hamburgerMenu, toggleHamburgerMenu, menuType, target, className}) => {
     const hamburgerStyles = [
         'rot',
         'htx',
@@ -14,10 +15,10 @@ const Hamburger = ({children, hamburgerMenu, hamburgerMenuToggled, menuType, tar
         e.stopPropagation();
         e.preventDefault();
         if (target !== hamburgerMenu.target) {
-            hamburgerMenuToggled(false, hamburgerMenu.target);
-            hamburgerMenuToggled(true, target);
+            toggleHamburgerMenu(false, hamburgerMenu.target);
+            toggleHamburgerMenu(true, target);
         } else {
-            hamburgerMenuToggled(!hamburgerMenu.isActive, target);
+            toggleHamburgerMenu(!hamburgerMenu.isActive, target);
         }
     };
     return (
@@ -46,13 +47,5 @@ const Hamburger = ({children, hamburgerMenu, hamburgerMenuToggled, menuType, tar
         </span>
     );
 };
-
-// Hamburger.propTypes = {
-//     hamburgerMenu: React.PropTypes.object.isRequired,
-//     hamburgerMenuToggled: React.PropTypes.func.isRequired,
-//     menuType: React.PropTypes.string,
-//     className: React.PropTypes.string,
-//     target: React.PropTypes.string.isRequired
-// };
 
 export default Hamburger;
