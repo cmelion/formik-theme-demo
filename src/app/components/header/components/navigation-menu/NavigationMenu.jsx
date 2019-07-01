@@ -5,9 +5,9 @@ import cx from 'classnames';
 require('./style.scss');
 
 // Assumes target state is in sync (no shared state)
-const NavigationMenu = ({hamburgerMenu, hamburgerMenuToggled, target}) => {
+const NavigationMenu = ({hamburgerMenu, toggleHamburgerMenu, target}) => {
     const handleClick = () => {
-        hamburgerMenuToggled(!hamburgerMenu.isActive, target);
+        toggleHamburgerMenu(!hamburgerMenu.isActive, target);
     };
     return (
         <ul className={
@@ -17,14 +17,14 @@ const NavigationMenu = ({hamburgerMenu, hamburgerMenuToggled, target}) => {
             })
         }>
             <li className="is-navigation hover" onClick={handleClick}>
-                <Link to="/first-link">
-                    <div>Your 1st Menu Item</div>
-                    <div>Get First Menu Item target</div>
+                <Link to={{ type: "DATATABLE" }}>
+                    <div>Data Table</div>
+                    <div>Sample Data Table</div>
                 </Link>
             </li>
             <li>&nbsp;</li>
             <li className="is-navigation disabled">
-                <Link to="" className="disabled">
+                <Link to={{ type: "THEMELIST" }} className="disabled">
                     <div>Dashboard</div>
                     <div>My Customizable Dashboard</div>
                 </Link>

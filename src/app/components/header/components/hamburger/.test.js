@@ -154,13 +154,4 @@ describe('CSS Hamburger Menu Suite', () => {
             expect(button.hasClass('is-active')).to.be.false;
         });
     });
-
-    describe('Actions', () => {
-        require('./actions/spec');
-    });
-
-    describe('Reducers', () => {
-        require('./reducers/.test');
-    });
-
 });

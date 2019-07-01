@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { hot, setConfig } from 'react-hot-loader';
 import { ActiveTheme, ThemeList } from '../themes';
+import { DataTable } from './components/data-table';
 import { LoginForm } from './components/login';
 import { Header } from './components/header';
 
@@ -11,7 +12,8 @@ setConfig({showReactDomPatchNotification: false});
 
 const scenes = {
     THEMELIST: <ThemeList />,
-    LOGIN: <LoginForm />
+    LOGIN: <LoginForm />,
+    DATATABLE: <DataTable />,
 };
 
 
