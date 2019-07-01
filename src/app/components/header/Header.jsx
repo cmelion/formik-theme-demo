@@ -3,11 +3,14 @@ import cx from "classnames";
 import Link from "redux-first-router-link";
 import { bindActionCreators } from 'redux'
 import { useSelector, useDispatch } from 'react-redux';
+import { hot } from 'react-hot-loader';
 import { Hamburger, actions as hamburgerActions } from "./components/hamburger";
+import { NavigationMenu } from "./components/navigation-menu";
 import { LogoutMenu} from "./components/logout-menu";
 import { Logo } from "./components/logo";
 import styles from "./styles.module.scss";
 
+export const NAVIGATION_MENU = 'navigation-menu';
 export const LOGOUT_MENU = "logout-menu";
 
 // TODO: import from the login component
@@ -43,7 +46,15 @@ const Header  = ({loggedIn, user, ...rest}) => {
 
     return (
         <header className={cx({[styles.header]: true, 'tools-common-header': true})}>
+            <NavigationMenu target={NAVIGATION_MENU}
+                            hamburgerMenu={hamburgerMenu}
+                            toggleHamburgerMenu={toggleHamburgerMenu}/>
             <div className="header-titles">
+                <Hamburger menuType="grid"
+                           target={NAVIGATION_MENU}
+                           hamburgerMenu={hamburgerMenu}
+                           toggleHamburgerMenu={toggleHamburgerMenu}
+                />
                 <Logo className={styles.logo} />
                 <span className={cx({'header-title': true, [styles.title]: true})}>
                     <Link to={{ type: "THEMELIST" }}>App Name</Link>
@@ -77,4 +88,4 @@ const Header  = ({loggedIn, user, ...rest}) => {
     );
 };
 
-export default Header;
+export default hot(module)(Header);

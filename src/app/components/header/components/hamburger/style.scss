@@ -6,3 +6,8 @@
 .circumflex:not(.is-active) .circumflex-item:before {
   border-top-color: var(--text-color);
 }
+
+.tcon-grid .tcon-grid__item {
+  color: var(--text-color);
+  background: var(--text-color);
+}

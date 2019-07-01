@@ -33,7 +33,8 @@ const Hamburger = ({children, hamburgerMenu, toggleHamburgerMenu, menuType, targ
                       'hamburger--htra': menuType === 'htra',
                       'tcon-grid tcon-grid--rearrange': menuType === 'grid',
                       circumflex: menuType === 'caret',
-                      'text-only': menuType === 'text'
+                      'text-only': menuType === 'text',
+                      'is-active': hamburgerMenu.target === target && hamburgerMenu.isActive
                   })
               }>
             <span className={
