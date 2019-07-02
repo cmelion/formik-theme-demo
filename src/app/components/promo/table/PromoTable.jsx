@@ -1,6 +1,7 @@
 import React from 'react';
 import MaterialTable from "material-table";
-import { PromoPlanWizard } from '../promo-plan';
+import { PromoPlanWizard } from '../plan/index';
+import './styles.scss';
 
 const DataTable = () => {
     return (
@@ -9,12 +10,23 @@ const DataTable = () => {
             columns={[
                 { title: 'Plan Name', field: 'planName' },
                 { title: 'Plan Description', field: 'planDescription' },
+                { title: 'Plan Start Date', field: 'planStartDate', type: 'datetime'},
+                { title: 'Plan End Date', field: 'planEndDate', type: 'datetime' },
                 { title: 'Code Prefix', field: 'codePrefix' },
+                { title: 'Code Redemption Type', field: 'codeRedemptionType'},
                 { title: 'Approved', field: 'approved', type: 'boolean' },
             ]}
             data={[
-                { planName: 'Mehmet',      planDescription: 'Baran', codePrefix: 'xyz', approved: true },
-                { planName: 'Zerya Betül', planDescription: 'Baran', codePrefix: 'xyz', approved: false },
+                {
+                    planName: 'Mehmet', planDescription: 'Baran', planStartDate: "2019-06-24T10:30", planEndDate: "2019-10-24T10:30",
+                    codePrefix: 'xyz', codeRedemptionType: 'multi-use',
+                    approved: true
+                },
+                {
+                    planName: 'Zerya Betül', planDescription: 'Baran', planStartDate: "2019-05-24T10:30", planEndDate: "2019-11-24T10:30",
+                    codePrefix: 'xyz', codeRedemptionType: 'single-use',
+                    approved: false
+                },
             ]}
             options={{
                 filtering: true,

@@ -3,8 +3,8 @@ import Box from '@material-ui/core/Box';
 import Button from "@material-ui/core/Button";
 import { Formik } from "formik";
 import Paper from "@material-ui/core/Paper";
-import { default as PromoPlanFields } from "./steps/PromoPlanOverview";
-import { default as PromoCodeDeliveryFields } from "./steps/PromoCodeDeliveryDetails";
+import { default as PromoPlanFields } from "./sections/PromoPlanOverview";
+import { default as PromoCodeDeliveryFields } from "./sections/PromoCodeDeliveryDetails";
 import { validationSchema } from "./schema";
 import styles from './styles.module.scss';
 
@@ -17,7 +17,6 @@ const PromoPlanWizard = (props) => {
     return (
         <div className={styles.container}>
             <Paper elevation={1} className={styles.paper}>
-                <h1>Promo Details</h1>
                 <Formik
                     initialValues={props}
                     validationSchema={validationSchema}
@@ -43,7 +42,7 @@ const PromoPlanWizard = (props) => {
                             <PromoCodeDeliveryFields {...props} change={change}/>
                         ];
                         return (
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} className="promo-form">
                                 {steps[step]}
                                 <p/>
                                 <Box display="flex" flexDirection="row">

@@ -22,7 +22,7 @@ const LoginForm = () => {
                 const access_token = data.token;
                 defaults.headers.common['Authorization'] = `Bearer ${access_token}`;
                 dispatch(userAuthenticatedSSO(data));
-                push('/promo-table');
+                push('/table');
             }
         }
     };
