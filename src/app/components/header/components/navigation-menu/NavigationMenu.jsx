@@ -17,9 +17,9 @@ const NavigationMenu = ({hamburgerMenu, toggleHamburgerMenu, target}) => {
             })
         }>
             <li className="is-navigation hover" onClick={handleClick}>
-                <Link to={{ type: "DATATABLE" }}>
-                    <div>Data Table</div>
-                    <div>Sample Data Table</div>
+                <Link to={{ type: "PROMOTABLE" }}>
+                    <div>Promotions Table</div>
+                    <div>Searchable, filterable list of Promotions</div>
                 </Link>
             </li>
             <li>&nbsp;</li>

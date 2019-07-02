@@ -1,7 +1,7 @@
 import { connectRoutes } from 'redux-first-router';
 
 export const routePaths = {
-    DATATABLE: '/data-table',
+    PROMOTABLE: '/promo-table',
     LOGIN: '/login',
     THEMELIST: '/',
 };
