@@ -27,7 +27,8 @@ const api = {
   getPromos: (page: number = 1) => {
     return request<Promo[]>({
       method: 'GET',
-      url: `/promos?limit=10&page=${page}`,
+      url: "/promos"
+      // url: `/promos?limit=10&page=${page}`,
     });
   },
 

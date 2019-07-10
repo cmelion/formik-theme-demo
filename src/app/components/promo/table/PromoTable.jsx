@@ -10,30 +10,23 @@ import './styles.scss';
 const DataTable = () => {
     const dispatch = useDispatch();
     const [response, getPromos] = useResource(api.getPromos);
-    const { currentPage: page, data: promosList } = useSelector(
+    const { data: promosList } = useSelector(
         (state) => state.promosListCached
     );
 
-    // function onMore() {
-    //     if (page < 10) {
-    //         getPromos(page + 1);
-    //     }
-    // }
+    // Load everything when the component loads for now to simplify client-side search/reporting
+    // revisit when and if performance suffers
+    useEffect(() => {
+        if (promosList.length === 0) {
+            getPromos();
+        }
+    }, [getPromos, promosList.length]);
 
     useEffect(() => {
-        if (page === 0) {
-            getPromos(1);
+        if (promosList.length === 0 && response.data) {
+            dispatch({ type: "CACHE_PROMOS", payload: { data: response.data } });
         }
-    }, [page, getPromos]);
-
-    // TODO: determine how to add page to the deps without creating an infinite loop
-    // see https://github.com/facebook/create-react-app/issues/6880
-    useEffect(() => {
-        if (response.data) {
-            dispatch({ type: "CACHE_PROMOS", payload: { page: page + 1, data: response.data } });
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [response.data, dispatch]);
+    }, [response.data, promosList.length, dispatch]);
 
     return (
         <>
@@ -46,7 +39,7 @@ const DataTable = () => {
                     { title: 'Plan End Date', field: 'promoValidityEndTime', type: 'datetime' },
                     { title: 'Code Prefix', field: 'codePrefix' },
                     { title: 'Code Redemption Type', field: 'codeUsageType'},
-                    { title: 'Tenant ID', field: 'tenantId', type: 'number', hidden: true },
+                    { title: 'Tenant ID', field: 'tenantId', type: 'numeric', hidden: true },
                     { title: 'Approved', field: 'approved', type: 'boolean' },
                 ]}
                 data={ promosList }
