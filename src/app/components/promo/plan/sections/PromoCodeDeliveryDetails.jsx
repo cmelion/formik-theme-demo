@@ -3,7 +3,7 @@ import TextField from "@material-ui/core/TextField";
 
 const Form = props => {
     const {
-        values: { codePrefix, codeRedemptionType, codeRandomCharLength, codeRedemptionLimit, codeCount, deliveryURL, approved },
+        values: { codePrefix, codeUsageType, codeLength, redemptionLimit, codeCount, deliveryURL, approved },
         errors,
         touched,
         change,
@@ -31,12 +31,12 @@ const Form = props => {
             />
             <TextField
                 disabled={approved}
-                id="codeRedemptionType"
+                id="codeUsageType"
                 select
                 label="Redemption Type"
-                value={codeRedemptionType}
-                onChange={change.bind(null, "codeRedemptionType")}
-                helperText={touched.codeRedemptionType ? errors.codeRedemptionType : ""}
+                value={codeUsageType}
+                onChange={change.bind(null, "codeUsageType")}
+                helperText={touched.codeUsageType ? errors.codeUsageType : ""}
                 SelectProps={{
                     native: true,
                 }}
@@ -48,29 +48,29 @@ const Form = props => {
                     </option>
                 ))}
             </TextField>
-            { codeRedemptionType === 'single-use' ? (
+            { codeUsageType === 'single-use' ? (
                 <div>
                     <TextField
                         disabled={approved}
-                        id="codeRandomCharLength"
-                        name="codeRandomCharLength"
+                        id="codeLength"
+                        name="codeLength"
                         type="number"
-                        helperText={touched.codeRandomCharLength ? errors.codeRandomCharLength : ""}
-                        error={touched.codeRandomCharLength && Boolean(errors.codeRandomCharLength)}
+                        helperText={touched.codeLength ? errors.codeLength : ""}
+                        error={touched.codeLength && Boolean(errors.codeLength)}
                         label="Random Characters"
-                        value={codeRandomCharLength}
-                        onChange={change.bind(null, "codeRandomCharLength")}
+                        value={codeLength}
+                        onChange={change.bind(null, "codeLength")}
                     />
                     <TextField
                         disabled={approved}
-                        id="codeRedemptionLimit"
-                        name="codeRedemptionLimit"
+                        id="redemptionLimit"
+                        name="redemptionLimit"
                         type="number"
-                        helperText={touched.codeRedemptionLimit ? errors.codeRedemptionLimit : ""}
-                        error={touched.codeRedemptionLimit && Boolean(errors.codeRedemptionLimit)}
+                        helperText={touched.redemptionLimit ? errors.redemptionLimit : ""}
+                        error={touched.redemptionLimit && Boolean(errors.redemptionLimit)}
                         label="Redemption Limit"
-                        value={codeRedemptionLimit}
-                        onChange={change.bind(null, "codeRedemptionLimit")}
+                        value={redemptionLimit}
+                        onChange={change.bind(null, "redemptionLimit")}
                     />
                     <TextField
                         disabled={approved}

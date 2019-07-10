@@ -1,10 +1,11 @@
 import React from "react";
+import { hot } from 'react-hot-loader';
 import TextField from "@material-ui/core/TextField";
 
 
 const Form = props => {
     const {
-        values: { planName, planDescription, planStartDate, planEndDate, approved },
+        values: { promoPlanName, promoDescription, promoValidityStartTime, promoValidityEndTime, approved },
         errors,
         touched,
         change,
@@ -16,55 +17,53 @@ const Form = props => {
             <h1>Plan Overview</h1>
             <TextField
                 disabled={approved}
-                id="planName"
-                name="planName"
-                helperText={touched.planName ? errors.planName : ""}
-                error={touched.planName && Boolean(errors.planName)}
+                id="promoPlanName"
+                name="promoPlanName"
+                helperText={touched.promoPlanName ? errors.promoPlanName : ""}
+                error={touched.promoPlanName && Boolean(errors.promoPlanName)}
                 label="Plan Name"
-                value={planName}
-                onChange={change.bind(null, "planName")}
+                value={promoPlanName}
+                onChange={change.bind(null, "promoPlanName")}
             />
             <TextField
                 disabled={approved}
-                id="planStartDate"
-                name="planStartDate"
+                id="promoValidityStartTime"
+                name="promoValidityStartTime"
                 label="Plan Start Date"
                 type="datetime-local"
                 InputLabelProps={{
                     shrink: true,
                 }}
-                helperText={touched.planStartDate ? errors.planStartDate : ""}
-                error={touched.planStartDate && Boolean(errors.planStartDate)}
-                value={planStartDate}
-                onChange={change.bind(null, "planStartDate")}
+                helperText={touched.promoValidityStartTime ? errors.promoValidityStartTime : ""}
+                error={touched.promoValidityStartTime && Boolean(errors.promoValidityStartTime)}
+                value={promoValidityStartTime}
+                onChange={change.bind(null, "promoValidityStartTime")}
             />
             <TextField
                 disabled={approved}
-                id="planEndDate"
-                name="planEndDate"
+                id="promoValidityEndTime"
                 label="Plan End Date"
                 type="datetime-local"
                 InputLabelProps={{
                     shrink: true,
                 }}
-                helperText={touched.planEndDate ? errors.planEndDate : ""}
-                error={touched.planEndDate && Boolean(errors.planEndDate)}
-                value={planEndDate}
-                onChange={change.bind(null, "planEndDate")}
+                helperText={touched.promoValidityEndTime ? errors.promoValidityEndTime : ""}
+                error={touched.promoValidityEndTime && Boolean(errors.promoValidityEndTime)}
+                value={promoValidityEndTime}
+                onChange={change.bind(null, "promoValidityEndTime")}
             />
             <TextField
                 disabled={approved}
-                id="planDescription"
-                name="planDescription"
-                helperText={touched.planDescription ? errors.planDescription : ""}
-                error={touched.planDescription && Boolean(errors.planDescription)}
+                id="promoDescription"
+                helperText={touched.promoDescription ? errors.planDescription : ""}
+                error={touched.promoDescription && Boolean(errors.promoDescription)}
                 label="Plan Description"
-                value={planDescription}
-                onChange={change.bind(null, "planDescription")}
+                value={promoDescription}
+                onChange={change.bind(null, "promoDescription")}
                 fullWidth
             />
         </>
     );
 };
 
-export default Form;
+export default hot(module)(Form);
