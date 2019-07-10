@@ -15,7 +15,7 @@ const Form = props => {
         {value: 'unlimited-offer', label: 'Unlimited Offer'},
 
     ];
-
+    // TODO: Consider using a factory to keep from having to update duplicated fieldNames in so many places
     return (
         <>
             <h1>PromoCode Delivery</h1>
