@@ -25,6 +25,7 @@ const Form = props => {
                 onChange={change.bind(null, "planName")}
             />
             <TextField
+                disabled={approved}
                 id="planStartDate"
                 name="planStartDate"
                 label="Plan Start Date"
@@ -38,6 +39,7 @@ const Form = props => {
                 onChange={change.bind(null, "planStartDate")}
             />
             <TextField
+                disabled={approved}
                 id="planEndDate"
                 name="planEndDate"
                 label="Plan End Date"

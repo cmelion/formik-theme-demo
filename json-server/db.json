@@ -5,117 +5,38 @@
         "description": "Employee Portal",
         "host": "server.tools.app.com"
     },
-    "items": [{
-            "_id": 1,
-            "itemId": "ticketA",
-            "createdBy": {
-                "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
-                "role": "Manager",
-                "access": true,
-                "firstName": "Test",
-                "lastName": "Testerson",
-                "email": "test.testerson@test.com"
-            },
-            "lastModifiedBy": {
-                "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
-                "role": "Manager",
-                "access": true,
-                "firstName": "Test",
-                "lastName": "Testerson",
-                "email": "test.testerson@test.com"
-            },
-            "createdDate": "2016-07-11T23:27:09.059Z",
-            "lastModifiedDate": "2016-07-12T22:49:18.177Z",
-            "name": "Title 1 - edited",
-            "description": "<div>Some description.</div><div>We found some more stuff.</div><div>And still more stuff.</div><div>Still lots and lots of stuff</div><div>how much longer?</div><div>this is insane</div>",
-            "products": [
-                "appgo",
-                "appnow"
-            ],
-            "clients": [
-                "appleios",
-                "xbox",
-                "desktop"
-            ],
-            "status": "investigating",
-            "recipients": [],
-            "history": [{
-                "lastModifiedDate": [
-                    "2016-07-11T23:27:09.059Z",
-                    "2016-07-12T22:49:18.177Z"
-                ],
-                "status": [
-                    "identified",
-                    "investigating"
-                ]
-            }]
+    "promos": [
+        {
+            "promoPlanId": "abc",
+            "promoPlanName": "alpha_promo",
+            "promoDescription": "Alpha promotion 2019",
+            "tenantId": 1,
+            "promoValidityStartTime": "2019-05-24T10:30:00Z",
+            "promoValidityEndTime": "2019-05-29T10:30:00Z",
+            "codeCount": 1000,
+            "codeUsageType": "multi-use",
+            "redemptionLimit": 1,
+            "codePrefix": "beta2019",
+            "codeLength": 5,
+            "createdBy": "user-a",
+            "createdTimestamp": "2019-05-24T10:30:00Z",
+            "approved": true
         },
         {
-            "_id": 2,
-            "itemId": "ticketB",
-            "createdBy": {
-                "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
-                "role": "Manager",
-                "access": true,
-                "firstName": "Test",
-                "lastName": "Testerson",
-                "email": "test.testerson@app.com"
-            },
-            "lastModifiedBy": {
-                "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
-                "role": "Manager",
-                "access": true,
-                "firstName": "Test",
-                "lastName": "Testerson",
-                "email": "test.testerson@app.com"
-            },
-            "createdDate": "2016-07-11T23:27:09.059Z",
-            "lastModifiedDate": "2016-07-11T23:27:09.059Z",
-            "name": "Title 1 - edited",
-            "description": "<div>Some description.</div><div>We found some more stuff.</div><div>And still more stuff.</div><div>Still lots and lots of stuff</div><div>how much longer?</div><div>this is insane</div>",
-            "products": [
-                "appgo"
-            ],
-            "clients": [
-                "desktop"
-            ],
-            "status": "identified",
-            "recipients": [],
-            "history": []
-        },
-        {
-            "_id": 3,
-            "itemId": "ticketC",
-            "createdBy": {
-                "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
-                "role": "Manager",
-                "access": true,
-                "firstName": "Test",
-                "lastName": "Testerson",
-                "email": "test.testerson@test.com"
-            },
-            "lastModifiedBy": {
-                "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
-                "role": "Manager",
-                "access": true,
-                "firstName": "Test",
-                "lastName": "Testerson",
-                "email": "test.testerson@test.com"
-            },
-            "createdDate": "2016-07-11T23:27:09.059Z",
-            "lastModifiedDate": "2016-07-11T23:27:09.059Z",
-            "name": "test",
-            "description": "<div>test</div>",
-            "products": [
-                "appnow"
-            ],
-            "clients": [
-                "appleios",
-                "desktop"
-            ],
-            "status": "investigating",
-            "recipients": [],
-            "history": []
+            "promoPlanId": "xyz",
+            "promoPlanName": "beta_promo",
+            "promoDescription": "Beta promotion 2019",
+            "tenantId": 1,
+            "promoValidityStartTime": "2019-06-24T10:30:00Z",
+            "promoValidityEndTime": "2019-06-29T10:30:00Z",
+            "codeCount": 1000,
+            "codeUsageType": "single-use",
+            "redemptionLimit": 1,
+            "codePrefix": "beta2019",
+            "codeLength": 5,
+            "createdBy": "user-b",
+            "createdTimestamp": "2019-06-24T10:30:00Z",
+            "approved": false
         }
     ],
     "login": {

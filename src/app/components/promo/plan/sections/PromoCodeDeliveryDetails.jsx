@@ -30,6 +30,7 @@ const Form = props => {
                 onChange={change.bind(null, "codePrefix")}
             />
             <TextField
+                disabled={approved}
                 id="codeRedemptionType"
                 select
                 label="Redemption Type"

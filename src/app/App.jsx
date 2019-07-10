@@ -5,6 +5,7 @@ import { ActiveTheme, ThemeList } from '../themes';
 import { PromoTable } from './components/promo/table';
 import { LoginForm } from './components/login';
 import { Header } from './components/header';
+import { RequestProviderWrapper} from "./store/RequestProviderWrapper";
 
 import styles from './App.module.css';
 
@@ -23,7 +24,9 @@ const App = () => {
     return <ActiveTheme>
         <div className={styles.app}>
             <Header user={user} loggedIn={user.email !== undefined}/>
-            {scenes[location.type]}
+            <RequestProviderWrapper name={location.type}>
+                {scenes[location.type]}
+            </RequestProviderWrapper>
         </div>
     </ActiveTheme>;
 };
