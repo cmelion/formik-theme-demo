@@ -18,7 +18,6 @@ const Form = props => {
             <TextField
                 disabled={approved}
                 id="promoPlanName"
-                name="promoPlanName"
                 helperText={touched.promoPlanName ? errors.promoPlanName : ""}
                 error={touched.promoPlanName && Boolean(errors.promoPlanName)}
                 label="Plan Name"
@@ -28,7 +27,6 @@ const Form = props => {
             <TextField
                 disabled={approved}
                 id="promoValidityStartTime"
-                name="promoValidityStartTime"
                 label="Plan Start Date"
                 type="datetime-local"
                 InputLabelProps={{
