@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader';
 import MaterialTable from "material-table";
 import { useSelector, useDispatch } from "react-redux";
 import { useResource } from "react-request-hook";
-import api from "../../../store/api";
+import api from "../api";
 import { PromoPlanWizard } from '../plan/index';
 import './styles.scss';
 

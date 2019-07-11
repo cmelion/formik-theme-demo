@@ -20,6 +20,7 @@
             "codeLength": 5,
             "createdBy": "user-a",
             "createdTimestamp": "2019-05-24T10:30:00",
+            "deliveryURL": "http://test.com",
             "approved": true
         },
         {
@@ -36,6 +37,7 @@
             "codeLength": 5,
             "createdBy": "user-b",
             "createdTimestamp": "2019-06-24T10:30:00",
+            "deliveryURL": "http://test.com",
             "approved": false
         }
     ],

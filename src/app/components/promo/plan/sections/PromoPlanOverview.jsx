@@ -5,7 +5,14 @@ import TextField from "@material-ui/core/TextField";
 
 const Form = props => {
     const {
-        values: { promoPlanName, promoDescription, promoValidityStartTime, promoValidityEndTime, approved },
+        values: {
+            approved,
+            promoDescription,
+            promoPlanName,
+            promoValidityEndTime,
+            promoValidityStartTime,
+            tenantId,
+        },
         errors,
         touched,
         change,
@@ -23,6 +30,15 @@ const Form = props => {
                 label="Plan Name"
                 value={promoPlanName}
                 onChange={change.bind(null, "promoPlanName")}
+            />
+            <TextField
+                disabled={approved}
+                id="tenantId"
+                helperText={touched.tenantId ? errors.tenantId : ""}
+                error={touched.tenantId && Boolean(errors.tenantId)}
+                label="Tenant ID"
+                value={tenantId}
+                onChange={change.bind(null, "tenantId")}
             />
             <TextField
                 disabled={approved}

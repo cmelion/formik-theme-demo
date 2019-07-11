@@ -1,19 +1,23 @@
 import React, {useState} from "react";
+import { hot } from 'react-hot-loader';
 import Box from '@material-ui/core/Box';
 import Button from "@material-ui/core/Button";
 import {Formik} from "formik";
 import Paper from "@material-ui/core/Paper";
+import { useResource } from "react-request-hook";
+import api from "../api";
 import {default as PromoPlanFields} from "./sections/PromoPlanOverview";
 import {default as PromoCodeDeliveryFields} from "./sections/PromoCodeDeliveryDetails";
 import {validationSchema} from "./schema";
 import styles from './styles.module.scss';
 
-export const submitValues = ({planName, password}) => {
-    console.log({planName, password});
-};
-
 const PromoPlanWizard = (props) => {
     const [step, setStep] = useState(0);
+    const [response, savePromo] = useResource(api.savePromo);
+    const submitValues = (values) => {
+        savePromo(values);
+    };
+
     return (
         <div className={styles.container}>
             <Paper elevation={1} className={styles.paper}>
@@ -97,4 +101,4 @@ const PromoPlanWizard = (props) => {
 };
 
 
-export default PromoPlanWizard;
+export default hot(module)(PromoPlanWizard);

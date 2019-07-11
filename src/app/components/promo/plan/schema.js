@@ -5,6 +5,8 @@ export const validationSchema = Yup.object({
         .required("Plan name is required"),
     promoDescription: Yup.string("Enter your plan description")
         .required("Plan description is required"),
+    tenantId: Yup.number("Enter your tentant id")
+        .required("Tenant ID is required"),
     promoValidityStartTime: Yup.date("Enter your plan start date")
         .required("Plan start date is required"),
     promoValidityEndTime: Yup.date("Enter your plan end date")

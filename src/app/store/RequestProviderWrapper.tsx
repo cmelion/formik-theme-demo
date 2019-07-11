@@ -11,7 +11,7 @@ import { LoadingBar, showLoading, hideLoading } from "react-redux-loading-bar";
 
 const config = require('../../../package.json').config;
 
-const BASE_URL = `${config.baseURL}/v1`;
+const BASE_URL = `${config.baseURL}v1`;
 
 export const RequestProviderWrapper: React.FC<{ name: string }> = ({ name, children }) => {
   const dispatch = useDispatch();

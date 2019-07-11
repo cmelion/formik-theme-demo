@@ -24,20 +24,26 @@ export type Promo = {
 };
 
 const api = {
-  getPromos: (page: number = 1) => {
-    return request<Promo[]>({
-      method: 'GET',
-      url: "/promos"
-      // url: `/promos?limit=10&page=${page}`,
-    });
-  },
-
-  searchPromos: (searchText: string) => {
-    return request<Promo[]>({
-      method: 'GET',
-      url: `/promos?filter=${searchText}&limit=10`,
-    });
-  },
+    getPromos: () => {
+    // getPromos: (page: number = 1) => {
+        return request<Promo[]>({
+            method: 'GET',
+            url: "/promos"
+            // url: `/promos?limit=10&page=${page}`,
+        });
+    },
+    savePromo: (promo: Promo) => {
+        return request<Promo>({
+            method: 'POST',
+            url: `/promos?promoPlanId=${promo.promoPlanId}`
+        });
+    },
+    // searchPromos: (searchText: string) => {
+    //     return request<Promo[]>({
+    //         method: 'GET',
+    //         url: `/promos?filter=${searchText}&limit=10`,
+    //     });
+    // },
 };
 
 export default api;
