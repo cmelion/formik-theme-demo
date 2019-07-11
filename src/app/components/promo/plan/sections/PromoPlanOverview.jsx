@@ -7,6 +7,7 @@ const Form = props => {
     const {
         values: {
             approved,
+            promoPlanId,
             promoDescription,
             promoPlanName,
             promoValidityEndTime,
@@ -22,6 +23,15 @@ const Form = props => {
     return (
         <>
             <h1>Plan Overview</h1>
+            <TextField
+                disabled={approved}
+                id="promoPlanId"
+                helperText={touched.promoPlanId ? errors.promoPlanId : ""}
+                error={touched.promoPlanId && Boolean(errors.promoPlanId)}
+                label="Plan ID"
+                value={promoPlanId}
+                onChange={change.bind(null, "promoPlanId")}
+            />
             <TextField
                 disabled={approved}
                 id="promoPlanName"

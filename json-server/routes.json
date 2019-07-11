@@ -1,6 +1,6 @@
 {
     "/api/": "/",
     "/v1/": "/",
-    "/api/v1/": "/v1/",
-    "/github/": "/"
+    "/api/v1/": "/",
+    "/api/v1/promos/:promoPlanId": "/promos/:promoPlanId"
 }

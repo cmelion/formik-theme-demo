@@ -34,8 +34,9 @@ const api = {
     },
     savePromo: (promo: Promo) => {
         return request<Promo>({
-            method: 'POST',
-            url: `/promos?promoPlanId=${promo.promoPlanId}`
+            method: 'PUT',
+            url: `/promos/${promo.promoPlanId}`,
+            data: promo,
         });
     },
     // searchPromos: (searchText: string) => {

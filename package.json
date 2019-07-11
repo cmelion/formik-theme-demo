@@ -43,7 +43,7 @@
     "dev": "react-scripts start ",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "server": "nodemon --watch ./json-server/ ./json-server/server.js --id promoPlanId --delay 10"
+    "server": "nodemon --watch ./json-server/ ./json-server/server.js --id \"promoPlanId\" --delay 10"
   },
   "eslintConfig": {
     "extends": "react-app"

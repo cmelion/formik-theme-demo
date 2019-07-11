@@ -15,6 +15,7 @@ const PromoPlanWizard = (props) => {
     const [step, setStep] = useState(0);
     const [response, savePromo] = useResource(api.savePromo);
     const submitValues = (values) => {
+        delete values.tableData;
         savePromo(values);
     };
 
