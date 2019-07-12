@@ -4,6 +4,7 @@ import MaterialTable from "material-table";
 import { useSelector, useDispatch } from "react-redux";
 import { useResource } from "react-request-hook";
 import api from "../api";
+import { cachePromos } from './actions'
 import { PromoPlanWizard } from '../plan';
 import './styles.scss';
 
@@ -24,7 +25,7 @@ const DataTable = () => {
 
     useEffect(() => {
         if (promosList.length === 0 && response.data) {
-            dispatch({ type: "CACHE_PROMOS", payload: { data: response.data } });
+            dispatch(cachePromos(response.data));
         }
     }, [response.data, promosList.length, dispatch]);
 

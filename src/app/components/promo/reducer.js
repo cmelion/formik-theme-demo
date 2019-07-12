@@ -1,4 +1,5 @@
 import { constants as plan } from './plan/actions';
+import { constants as table } from './table/actions';
 const DEFAULT = {
     data: [],
 };
@@ -16,10 +17,9 @@ export const patchDefaultValues = (item)=>({
     ...item,
 });
 
-
 export default function reducer(state = DEFAULT, {type, payload}){
     switch (type) {
-        case "CACHE_PROMOS":
+        case table.CACHE_PROMOS:
             return Object.assign({}, state, {
                 data: [...state.data, ...payload.data]
             });
