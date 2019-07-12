@@ -25,7 +25,7 @@ const PromoPlanWizard = (props) => {
 
     useEffect(() => {
         if (response.data) {
-            dispatch(updatePromo({ data: response.data }));
+            dispatch(updatePromo(response.data));
         }
     }, [response.data, dispatch]);
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { hot, setConfig } from 'react-hot-loader';
 import { ActiveTheme, ThemeList } from '../themes';
-import { PromoTable } from './components/promo/table';
+import { PromoTable } from './components/promo';
 import { LoginForm } from './components/login';
 import { Header } from './components/header';
 import { RequestProviderWrapper} from "./store/RequestProviderWrapper";

@@ -38,7 +38,7 @@
       "codeLength": 5,
       "createdBy": "user-b",
       "createdTimestamp": "2019-06-24T10:30:00",
-      "deliveryURL": "http://test.com/alpha",
+      "deliveryURL": "http://test.com/beta",
       "approved": false,
       "id": "xyz"
     }

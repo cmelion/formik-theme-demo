@@ -4,7 +4,7 @@ import MaterialTable from "material-table";
 import { useSelector, useDispatch } from "react-redux";
 import { useResource } from "react-request-hook";
 import api from "../api";
-import { PromoPlanWizard } from '../plan/index';
+import { PromoPlanWizard } from '../plan';
 import './styles.scss';
 
 const DataTable = () => {
