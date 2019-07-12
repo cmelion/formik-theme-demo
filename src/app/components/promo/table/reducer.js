@@ -1,6 +1,5 @@
 // import { constants as c } from './actions';
 const DEFAULT = {
-    currentPage: 0,
     data: [],
 };
 

@@ -1,26 +1,23 @@
 import { constants as c } from './actions'
 
-const DEFAULT = {
-    isLoginSuccess: false,
-    isLoginPending: false,
-    loginError: null
-};
 
-export default function reducer(state = DEFAULT, action) {
+const getId = (item)=>(
+    item.promoPlanId
+);
+
+const hasSameId = (item, item2)=> (
+    getId(item) === getId(item2)
+);
+
+export const patchDefaultValues = (item)=>({
+        ...item,
+});
+
+export default function reducer(state = {}, action, payload) {
     switch (action.type) {
-        case c.SET_LOGIN_PENDING:
-            return Object.assign({}, state, {
-                isLoginPending: action.isLoginPending
-            });
-
-        case c.SET_LOGIN_SUCCESS:
-            return Object.assign({}, state, {
-                isLoginSuccess: action.isLoginSuccess
-            });
-
-        case c.SET_LOGIN_ERROR:
-            return Object.assign({}, state, {
-                loginError: action.loginError
+        case c.UPDATE_PROMO:
+            return state.map(item => {
+                return hasSameId(item, payload) ? patchDefaultValues(payload) : item;
             });
 
         default:
