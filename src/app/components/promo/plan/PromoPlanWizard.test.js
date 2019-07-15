@@ -12,7 +12,7 @@ const middlewares = [];
 const mockStore = configureStore(middlewares);
 
 let ui;
-describe("As someone who wants to Register", () => {
+describe("As someone who wants to create a Promotion", () => {
     // TODO: Fix needed for - Warning: An update to Formik inside a test was not wrapped in act(...).
     // https://github.com/jaredpalmer/formik/issues/1543
     // for now just disable warnings in this test.
@@ -39,8 +39,9 @@ describe("As someone who wants to Register", () => {
 
 
     const initializeTest = function(testCase, value) {
-        ui = mount(<ReactRedux.Provider store={store}><RequestProvider value={axios}><PromoPlanWizard /></RequestProvider></ReactRedux.Provider>);
-
+        ui = mount(<ReactRedux.Provider store={store}><RequestProvider value={axios}>
+            <PromoPlanWizard />
+        </RequestProvider></ReactRedux.Provider>);
         const field = ui.find(`#${testCase.field}`).find("input");
 
         //insert a wrong email
@@ -58,6 +59,7 @@ describe("As someone who wants to Register", () => {
         {
             desc: "And I leave the Plan Name field blank",
             field: "promoPlanName",
+            step: 0,
             badValue: "",
             goodValue: "beta_promo",
             errorText: "#promoPlanName-helper-text",
