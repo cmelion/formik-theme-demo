@@ -106,37 +106,4 @@ describe("As someone who wants to Register", () => {
         });
     });
 
-    describe("When password and confirmation don't match ", () => {
-        it("Then the password error is displayed", async () => {
-            ui = mount(<InputForm/>);
-
-            const passwordField = ui.find("#password").find("input");
-            const confirmPassword = ui.find("#confirmPassword").find("input");
-
-            //insert a valid password
-            passwordField.simulate("change", {
-                target: {
-                    name: "password",
-                    value: "fooBarBaz1"
-                }
-            });
-
-            //insert a mismatched confirm password
-            confirmPassword.simulate("change", {
-                target: {
-                    name: "confirmPassword",
-                    value: "foo"
-                }
-            });
-
-            //simulate the blur
-            confirmPassword.simulate("blur");
-            await wait(0);
-            ui.update();
-            const errors = ui.find('p[children="Password does not match"]');
-            expect(errors.length).toBeGreaterThan(0);
-        });
-
-    });
-
 });
