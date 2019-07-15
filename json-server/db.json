@@ -7,7 +7,6 @@
   },
   "promos": [
     {
-      "id": "abc",
       "promoPlanId": "abc",
       "promoPlanName": "alpha_promo",
       "promoDescription": "Alpha promotion 2019",
@@ -22,7 +21,8 @@
       "createdBy": "user-a",
       "createdTimestamp": "2019-05-24T10:30:00",
       "deliveryURL": "http://test.com",
-      "approved": true
+      "approved": true,
+      "id": "abc"
     },
     {
       "promoPlanId": "xyz",
