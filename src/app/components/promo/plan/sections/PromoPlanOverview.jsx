@@ -26,11 +26,8 @@ const Form = props => {
             <TextField
                 disabled={true}
                 id="promoPlanId"
-                helperText={touched.promoPlanId ? errors.promoPlanId : ""}
-                error={touched.promoPlanId && Boolean(errors.promoPlanId)}
                 label="Plan ID"
                 value={promoPlanId}
-                onChange={change.bind(null, "promoPlanId")}
             />
             <TextField
                 disabled={approved}

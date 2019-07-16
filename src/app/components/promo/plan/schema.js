@@ -1,8 +1,6 @@
 import * as Yup from "yup";
 
 export const validationSchema = Yup.object({
-    promoPlanId: Yup.string("Enter your plan id")
-        .required("Plan id is required"),
     promoPlanName: Yup.string("Enter your plan name")
         .required("Plan name is required"),
     promoDescription: Yup.string("Enter your plan description")
