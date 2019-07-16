@@ -80,7 +80,7 @@ describe("As someone who wants to create a Promotion", () => {
                     await wait(0);
                     ui.update();
                     const button = ui.find("button");
-                    expect(button.length).toBe(testCase.buttonCount);
+                    expect(button.length).toBe(testCase.buttons.length);
                 });
 
                 describe(`When the ${testCase.field} is corrected`, () => {
