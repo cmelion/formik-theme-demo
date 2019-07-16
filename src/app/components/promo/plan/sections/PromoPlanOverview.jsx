@@ -24,7 +24,7 @@ const Form = props => {
         <>
             <h1>Plan Overview</h1>
             <TextField
-                disabled={approved}
+                disabled={true}
                 id="promoPlanId"
                 helperText={touched.promoPlanId ? errors.promoPlanId : ""}
                 error={touched.promoPlanId && Boolean(errors.promoPlanId)}

@@ -24,7 +24,7 @@ describe("As someone who wants to create a Promotion", () => {
         console.error = originalError;
     });
 
-    let wrapper;
+    let ui;
     const initialState = { counter: { count: 0 } };
     const store = mockStore(initialState);
     const dispatchSpy = jest.spyOn(store, 'dispatch');
@@ -42,9 +42,16 @@ describe("As someone who wants to create a Promotion", () => {
         ui = mount(<ReactRedux.Provider store={store}><RequestProvider value={axios}>
             <PromoPlanWizard />
         </RequestProvider></ReactRedux.Provider>);
-        const field = ui.find(`#${testCase.field}`).find("input");
 
-        //insert a wrong email
+        for (let i = 1; i <= testCase.step; i++) {
+            const nextButton = ui.find('[aria-label="Next"]').hostNodes();
+            expect(nextButton.length).toBe(1);
+            nextButton.simulate("click");
+            // await wait(0);
+        }
+
+        const field = ui.find(`#${testCase.field}`).find("input");
+        //insert a wrong value
         field.simulate("change", {
             target: {
                 name: testCase.field,
@@ -63,8 +70,17 @@ describe("As someone who wants to create a Promotion", () => {
             badValue: "",
             goodValue: "beta_promo",
             errorText: "#promoPlanName-helper-text",
-            buttonText: "Next",
             buttonCount: 1,
+            submitButton: false
+        },
+        {
+            desc: "And I leave the Code Prefix field blank",
+            field: "codePrefix",
+            step: 1,
+            badValue: "",
+            goodValue: "beta2019",
+            errorText: "#codePrefix-helper-text",
+            buttonCount: 2,
             submitButton: false
         },
     ];
@@ -92,7 +108,6 @@ describe("As someone who wants to create a Promotion", () => {
                     ui.update();
                     const button = ui.find("button");
                     expect(button.length).toBe(testCase.buttonCount);
-                    expect(button.text()).toBe(testCase.buttonText);
                 });
 
                 describe(`When the ${testCase.field} is corrected`, () => {

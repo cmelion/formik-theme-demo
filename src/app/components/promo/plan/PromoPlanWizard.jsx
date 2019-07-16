@@ -68,6 +68,7 @@ const PromoPlanWizard = (props) => {
                                         <Box display="flex" flexDirection="row">
                                             {step > 0 ? (
                                                 <Button
+                                                    aria-label="Back"
                                                     onClick={() => setStep(step - 1)}
                                                     fullWidth
                                                     variant="contained"
@@ -78,6 +79,7 @@ const PromoPlanWizard = (props) => {
                                             ) : null}
                                             {step === steps.length - 1 ? (
                                                 <Button
+                                                    aria-label="Submit"
                                                     type="submit"
                                                     fullWidth
                                                     variant="contained"
@@ -88,6 +90,7 @@ const PromoPlanWizard = (props) => {
                                                 </Button>
                                             ) : (
                                                 <Button
+                                                    aria-label="Next"
                                                     onClick={() => setStep(step + 1)}
                                                     fullWidth
                                                     variant="contained"
