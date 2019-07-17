@@ -44,7 +44,7 @@ describe("As someone who wants to create a Promotion", () => {
             nextButton.simulate("click");
         }
 
-        const field = ui.find(`#${testCase.field}`).find("input");
+        const field = ui.find(`#${testCase.field}`).find(testCase.type);
         //insert a wrong value
         field.simulate("change", {
             target: {
@@ -72,7 +72,7 @@ describe("As someone who wants to create a Promotion", () => {
                 });
 
                 it(`And the bad ${testCase.field} value is displayed`, () => {
-                    const field = ui.find(`#${testCase.field}`).find("input");
+                    const field = ui.find(`#${testCase.field}`).find(testCase.type);
                     expect(field.prop("value")).toContain(testCase.badValue);
                 });
 
