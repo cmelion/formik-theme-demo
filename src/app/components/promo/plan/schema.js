@@ -15,8 +15,16 @@ export const validationSchema = Yup.object({
         .required("Code prefix is required"),
     codeUsageType: Yup.string("Enter your code redemption type")
         .required("Code redemption type is required"),
-    codeLength: Yup.number("Enter the number of random characters to generate"),
-    redemptionLimit: Yup.number("Enter code redemption limit"),
+    codeLength: Yup.number("Enter the number of random characters to generate")
+        .when("codeUsageType", {
+            is: "single-use",
+            then: Yup.number().required("Random Character Count is required")
+        }),
+    redemptionLimit: Yup.number("Enter code redemption limit")
+        .when("codeUsageType", {
+            is: "single-use",
+            then: Yup.number().required("Redemption Limit is required")
+        }),
     codeCount: Yup.number("Enter code count"),
     deliveryURL: Yup.string().url("Enter the delivery URL"),
 });
