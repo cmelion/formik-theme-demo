@@ -71,4 +71,15 @@ export const formTestCases = [
         errorText: "#codeUsageType-helper-text",
         buttons: ["Back", "Submit"],
     },
+    {
+        desc: "And I leave the Redemption Limit field blank",
+        field: "redemptionLimit",
+        type: "select",
+        step: 1,
+        badValue: "",
+        goodValue: "1",
+        errorText: "#redemptionLimit-helper-text",
+        buttons: ["Back", "Submit"],
+        dependencies: { codeUsageType: "single-use" }
+    },
 ];

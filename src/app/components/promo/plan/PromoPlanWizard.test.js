@@ -33,28 +33,39 @@ describe("As someone who wants to create a Promotion", () => {
         global.adapter.reset();
     });
 
-    const initializeFormTests = function(testCase, value) {
-        ui = mount(<ReactRedux.Provider store={store}><RequestProvider value={axios}>
-            <PromoPlanWizard />
-        </RequestProvider></ReactRedux.Provider>);
+    const getTestCaseByField= (field) => formTestCases.filter(testCase => {
+        return testCase.field === field;
+    });
 
-        for (let i = 1; i <= testCase.step; i++) {
-            const nextButton = ui.find('[aria-label="Next"]').hostNodes();
-            expect(nextButton.length).toBe(1);
-            nextButton.simulate("click");
-        }
-
-        const field = ui.find(`#${testCase.field}`).find(testCase.type);
-        //insert a wrong value
+    const simulateChange = (field, target, value) => {
         field.simulate("change", {
             target: {
-                name: testCase.field,
+                name: target,
                 value: value
             }
         });
 
         //simulate the blur
         field.simulate("blur");
+    };
+
+    const initializeFormTests = function(testCase, value) {
+        ui = mount(<ReactRedux.Provider store={store}><RequestProvider value={axios}>
+            <PromoPlanWizard />
+        </RequestProvider></ReactRedux.Provider>);
+
+        // Move to the correct section
+        for (let i = 1; i <= testCase.step; i++) {
+            const nextButton = ui.find('[aria-label="Next"]').hostNodes();
+            expect(nextButton.length).toBe(1);
+            nextButton.simulate("click");
+        }
+
+        // Set any
+
+        const field = ui.find(`#${testCase.field}`).find(testCase.type);
+        //insert a wrong value
+        simulateChange(field, testCase.field, value);
     };
 
     describe("When I fill in the Promo Form", () => {
