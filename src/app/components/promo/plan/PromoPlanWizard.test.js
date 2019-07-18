@@ -61,8 +61,13 @@ describe("As someone who wants to create a Promotion", () => {
             nextButton.simulate("click");
         }
 
-        // Set any
-
+        // Set any dependencies
+        for (let dependency in testCase.dependencies) {
+            if (testCase.dependencies.hasOwnProperty(dependency)) {
+                const field = ui.find(`#${dependency}`).find(testCase.dependencies[dependency].type);
+                simulateChange(field, dependency, testCase.dependencies[dependency].value);
+            }
+        }
         const field = ui.find(`#${testCase.field}`).find(testCase.type);
         //insert a wrong value
         simulateChange(field, testCase.field, value);

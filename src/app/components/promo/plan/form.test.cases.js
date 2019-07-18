@@ -72,14 +72,36 @@ export const formTestCases = [
         buttons: ["Back", "Submit"],
     },
     {
+        desc: "And I leave the Random Characters field blank",
+        field: "codeLength",
+        type: "input",
+        step: 1,
+        badValue: "",
+        goodValue: "5",
+        errorText: "#codeLength-helper-text",
+        buttons: ["Back", "Submit"],
+        dependencies: { codeUsageType: { type: "select" , value: "single-use" } }
+    },
+    {
         desc: "And I leave the Redemption Limit field blank",
         field: "redemptionLimit",
-        type: "select",
+        type: "input",
         step: 1,
         badValue: "",
         goodValue: "1",
         errorText: "#redemptionLimit-helper-text",
         buttons: ["Back", "Submit"],
-        dependencies: { codeUsageType: "single-use" }
+        dependencies: { codeUsageType: { type: "select" , value: "single-use" } }
+    },
+    {
+        desc: "And I leave the Code Count field blank",
+        field: "codeCount",
+        type: "input",
+        step: 1,
+        badValue: "",
+        goodValue: "1000",
+        errorText: "#codeCount-helper-text",
+        buttons: ["Back", "Submit"],
+        dependencies: { codeUsageType: { type: "select" , value: "single-use" } }
     },
 ];

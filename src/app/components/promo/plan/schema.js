@@ -25,6 +25,10 @@ export const validationSchema = Yup.object({
             is: "single-use",
             then: Yup.number().required("Redemption Limit is required")
         }),
-    codeCount: Yup.number("Enter code count"),
+    codeCount: Yup.number("Enter code count")
+        .when("codeUsageType", {
+            is: "single-use",
+            then: Yup.number().required("Code Count is required")
+        }),
     deliveryURL: Yup.string().url("Enter the delivery URL"),
 });
