@@ -33,10 +33,6 @@ describe("As someone who wants to create a Promotion", () => {
         global.adapter.reset();
     });
 
-    const getTestCaseByField= (field) => formTestCases.filter(testCase => {
-        return testCase.field === field;
-    });
-
     const simulateChange = (field, target, value) => {
         field.simulate("change", {
             target: {
@@ -62,7 +58,7 @@ describe("As someone who wants to create a Promotion", () => {
         }
 
         // Set any dependencies
-        for (let dependency in testCase.dependencies) {
+        for (const dependency in testCase.dependencies) {
             if (testCase.dependencies.hasOwnProperty(dependency)) {
                 const field = ui.find(`#${dependency}`).find(testCase.dependencies[dependency].type);
                 simulateChange(field, dependency, testCase.dependencies[dependency].value);
@@ -73,7 +69,7 @@ describe("As someone who wants to create a Promotion", () => {
         simulateChange(field, testCase.field, value);
     };
 
-    describe("When I fill in the Promo Form", () => {
+    describe("When I fill in the Promo Form fields", () => {
         formTestCases.forEach(function(testCase) {
             describe(testCase.desc, () => {
                 beforeEach(() => {

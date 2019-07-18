@@ -104,4 +104,14 @@ export const formTestCases = [
         buttons: ["Back", "Submit"],
         dependencies: { codeUsageType: { type: "select" , value: "single-use" } }
     },
+    {
+        desc: "And I enter a bad url in the Delivery URL field",
+        field: "deliveryURL",
+        type: "input",
+        step: 1,
+        badValue: "not a url",
+        goodValue: "http://a-good-url.com",
+        errorText: "#deliveryURL-helper-text",
+        buttons: ["Back", "Submit"],
+    },
 ];
